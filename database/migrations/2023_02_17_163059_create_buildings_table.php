@@ -13,10 +13,16 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
-            $table->string('adress');
-            $table->integer('users_id');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('logo');
+
+            $table->foreignId('city_id')->constrained();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

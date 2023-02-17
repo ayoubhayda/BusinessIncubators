@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('floors', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
-            $table->integer('nb_offices');
-            $table->integer('buildings_id');
+            $table->integer('order');
+
+            $table->foreignId('building_id')->constrained();
+
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

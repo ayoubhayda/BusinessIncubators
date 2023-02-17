@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birth_date');
@@ -21,9 +22,14 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('speciality');
-            $table->string('biography');
-            $table->integer('companies_id');
+            $table->string('biography')->nullable();
+
+            $table->foreignId('company_id')->constrained();
+            $table->foreignId('position_id')->constrained();
+
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

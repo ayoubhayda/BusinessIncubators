@@ -11,18 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('complaints', function (Blueprint $table) {
+        Schema::create('company_domain', function (Blueprint $table) {
             $table->id();
 
-            $table->text('message');
-            $table->boolean('resolved');
-            $table->text('note')->nullable();
-
-            $table->foreignId('building_id')->constrained();
+            $table->foreignId('company_id')->constrained();
+            $table->foreignId('domain_id')->constrained();
 
             $table->timestamps();
-            $table->softDeletes();
-
         });
     }
 
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('complaints');
+        Schema::dropIfExists('companies_domains');
     }
 };

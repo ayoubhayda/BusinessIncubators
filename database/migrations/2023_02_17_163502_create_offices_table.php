@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
             $table->boolean('is_rented');
-            $table->integer('nb_companies');
-            $table->integer('floors_id');
+
+            $table->foreignId('floor_id')->constrained();
+
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
