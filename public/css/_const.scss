@@ -1,0 +1,17 @@
+@import 'vars';
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: $body-fonts;
+    line-height: 1.6;
+    background-color: $color-1;
+}
+a, .btn
+{
+    scroll-behavior: smooth;
+    transition: 0.4s;
+}
