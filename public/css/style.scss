@@ -11,6 +11,9 @@
     ul a {
         color: $font-color-1;
         margin: 0 15px;
+        &:hover{
+            color: $color-2;
+        }
     }
 
     .logo {
@@ -32,6 +35,22 @@
 
 //--home page style cards
 
+.add{
+    .material-symbols-outlined{
+        border: 3px solid $color-2;
+        color: $color-2;
+        font-size: 50px;
+        width: 30%;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
+        text-decoration: none;
+        &:hover{
+            background-color: $color-2;
+            color: $color-1;
+        }
+    }
+}
 
 
 .content {

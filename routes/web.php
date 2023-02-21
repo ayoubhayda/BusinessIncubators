@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StaticController;
+use App\Http\Controllers\BuildingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/', )->name('login');
+Route::resource('buildings', BuildingsController::class);
+Route::get('/cities', [StaticController::class, 'cities'])->name('cities.index');
+Route::get('/domains', [StaticController::class, 'domains'])->name('domains.index');
+Route::get('/accounts', [StaticController::class, 'account'])->name('account.index');

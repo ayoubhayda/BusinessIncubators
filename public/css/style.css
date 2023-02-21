@@ -60,11 +60,29 @@ a, .btn {
   color: #182c4b;
   margin: 0 15px;
 }
+.navbar ul a:hover {
+  color: #00adbb;
+}
 .navbar .logo {
   width: 65px;
 }
 .navbar .container-fluid {
   margin: 0 5px;
+}
+
+.add .material-symbols-outlined {
+  border: 3px solid #00adbb;
+  color: #00adbb;
+  font-size: 50px;
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+  text-decoration: none;
+}
+.add .material-symbols-outlined:hover {
+  background-color: #00adbb;
+  color: #ffffff;
 }
 
 .content .card {
