@@ -2,12 +2,21 @@
 @import 'vars';
 @import 'const';
 @import 'buttons';
+<<<<<<< HEAD
 //@import 'button';
 
 .navbar {
     background-color: $color-1;
     box-shadow: 0 4px 16px 0 $shadow-color, 0 6px 40px 0 $shadow-color;
 
+=======
+@import 'tables';
+
+//--navbar
+.navbar {
+    background-color: $color-1;
+    box-shadow: 0 4px 16px 0 $shadow-color, 0 6px 40px 0 $shadow-color;
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
     ul a {
         color: $font-color-1;
         margin: 0 15px;
@@ -15,11 +24,17 @@
             color: $color-2;
         }
     }
+<<<<<<< HEAD
 
     .logo {
         width: 65px;
     }
 
+=======
+    .logo {
+        width: 65px;
+    }
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
     .btn {
         @extend %btn-1;
 
@@ -27,6 +42,7 @@
             @extend %btn-2;
         }
     }
+<<<<<<< HEAD
 
     .container-fluid {
         margin: 0 20px;
@@ -53,17 +69,28 @@
 }
 
 
+=======
+    .container-fluid {
+        margin: 0 5px;
+    }
+}
+//--home page style cards
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
 .content {
     .card {
         width: 30%;
         box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
+<<<<<<< HEAD
 
+=======
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
         .card-title {
             color: $color-2;
             text-transform: uppercase;
             font-weight: bolder;
             font-size: xx-large;
         }
+<<<<<<< HEAD
 
         .btn-M {
             @extend %btn-1;
@@ -79,24 +106,52 @@
 
             &:hover {
                 @extend %btn-4
+=======
+        .btn-E {
+            @extend %btn-1;
+            &:hover {
+                @extend %btn-2;
+            }
+        }
+        .btn-M {
+            @extend %btn-5;
+            width: 49%;
+            &:hover {
+                @extend %btn-6;
+            }
+        }
+        .btn-S {
+            @extend %btn-3;
+            width: 49%;
+            &:hover {
+                @extend %btn-4;
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
             }
         }
     }
 }
+<<<<<<< HEAD
 
 //--login page
 
+=======
+//--login page
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
 .loginLogo {
     margin: 50px auto;
     width: 140px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
 .login {
     box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
     width: 400px;
     color: $font-color-1;
     font-size: 15px;
     font-weight: 500;
+<<<<<<< HEAD
 
     h5 {
         color: $color-2;
@@ -106,23 +161,73 @@
         color: $color-2;
         background-color: white;
 
+=======
+    h5 {
+        color: $color-2;
+    }
+    .input-group-text {
+        color: $color-2;
+        background-color: white;
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
         .icon {
             font-size: 20px;
         }
     }
+<<<<<<< HEAD
 
     .form-check-input:checked {
         background-color: $color-2;
     }
 
+=======
+    .form-check-input:checked {
+        background-color: $color-2;
+    }
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
     .btn {
         width: 100%;
         height: 50px;
         border-radius: 7px;
         @extend %btn-1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
         &:hover {
             @extend %btn-2;
         }
     }
 }
+<<<<<<< HEAD
+=======
+//--table
+.citiesTable
+{
+    @extend %body-table;
+}
+.domainsTable
+{
+    @extend %body-table;
+}
+.modal{
+    color: $font-color-1;
+    font-size: 15px;
+    font-weight: 500;
+    .label{
+        font-size: 20px;
+        font-weight: 600;    
+    }
+}
+.modal .btn-a {
+    @extend %btn-1;
+    &:hover {
+        @extend %btn-2;
+    }
+}
+.modal .btn-d {
+    @extend %btn-3;
+    &:hover {
+        @extend %btn-4;
+    }
+}
+>>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c

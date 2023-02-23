@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\BuildingsController;
+use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\DomainsController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,14 @@ Route::get('/accounts', [StaticController::class, 'account'])->name('account.ind
 Auth::routes();
 
 Route::get('/home', [BuildingsController::class, 'index'])->name('home');
+
+Route::get('/', function () {
+    return view('login');
+});
+Route::resources([
+    '/buildings'=> BuildingsController::class,
+    '/cities'=> CitiesController::class,
+    '/domains'=> DomainsController::class,
+    '/users'=> UsersController::class
+]);
+
