@@ -1,0 +1,24 @@
+%body-table{
+    box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
+    width: 900px;
+    color: $font-color-1;
+    .btn-u {
+        width: 70%;
+        @extend %btn-5;
+        &:hover {
+            @extend %btn-6;
+        }
+    }
+    form
+    {
+        width: 100%;
+        .btn-d {
+            width: 70%;
+            @extend %btn-3;
+            &:hover {
+                @extend %btn-4;
+            }
+        }    
+    }
+
+}

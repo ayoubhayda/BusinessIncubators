@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuildingsController;
+use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\DomainsController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+Route::resources([
+    '/buildings'=> BuildingsController::class,
+    '/cities'=> CitiesController::class,
+    '/domains'=> DomainsController::class,
+    '/users'=> UsersController::class
+]);

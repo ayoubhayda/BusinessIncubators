@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+a, .btn {
+  scroll-behavior: smooth;
+  transition: 0.4s;
+}
+
+table, th, td, tr {
+  border: 2px solid #00adbb;
+}
+
+tfoot tr td .btn-a {
+  width: 70%;
+}
+.modal .btn-a, .login .btn, .content .card .btn-E, .navbar .btn, tfoot tr td .btn-a {
+  background-color: #00adbb;
+  border: none;
+  color: #ffffff;
+}
+
+.modal .btn-a:hover, .login .btn:hover, .content .card .btn-E:hover, .navbar .btn:hover, tfoot tr td .btn-a:hover {
+  background-color: #ffffff;
+  border: 1px solid #00adbb;
+  color: #00adbb;
+}
+
+.modal .btn-d, .content .card .btn-S, .domainsTable form .btn-d, .citiesTable form .btn-d {
+  background-color: #f14a4a;
+  border: none;
+  color: #ffffff;
+}
+
+.modal .btn-d:hover, .content .card .btn-S:hover, .domainsTable form .btn-d:hover, .citiesTable form .btn-d:hover {
+  background-color: #ffffff;
+  border: 1px solid #f14a4a;
+  color: #f14a4a;
+}
+
+.content .card .btn-M, .domainsTable .btn-u, .citiesTable .btn-u {
+  background-color: #007ee5;
+  border: none;
+  color: #ffffff;
+}
+
+.content .card .btn-M:hover, .domainsTable .btn-u:hover, .citiesTable .btn-u:hover {
+  background-color: #ffffff;
+  border: 1px solid #007ee5;
+  color: #007ee5;
+}
+
+.domainsTable, .citiesTable {
+  box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+  width: 900px;
+  color: #182c4b;
+}
+.domainsTable .btn-u, .citiesTable .btn-u {
+  width: 70%;
+}
+.domainsTable form, .citiesTable form {
+  width: 100%;
+}
+.domainsTable form .btn-d, .citiesTable form .btn-d {
+  width: 70%;
+}
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px 0 rgba(2, 112, 119, 0.1803921569), 0 6px 40px 0 rgba(2, 112, 119, 0.1803921569);
+}
+.navbar ul a {
+  color: #182c4b;
+  margin: 0 15px;
+}
+.navbar ul a:hover {
+  color: #00adbb;
+}
+.navbar .logo {
+  width: 65px;
+}
+.navbar .container-fluid {
+  margin: 0 5px;
+}
+
+.content .card {
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+}
+.content .card .card-title {
+  color: #00adbb;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+.content .card .btn-M {
+  width: 49%;
+}
+.content .card .btn-S {
+  width: 49%;
+}
+.loginLogo {
+  margin: 50px auto;
+  width: 140px;
+}
+
+.login {
+  box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+  width: 400px;
+  color: #182c4b;
+  font-size: 15px;
+  font-weight: 500;
+}
+.login h5 {
+  color: #00adbb;
+}
+.login .input-group-text {
+  color: #00adbb;
+  background-color: white;
+}
+.login .input-group-text .icon {
+  font-size: 20px;
+}
+.login .form-check-input:checked {
+  background-color: #00adbb;
+}
+.login .btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 7px;
+}
+.modal {
+  color: #182c4b;
+  font-size: 15px;
+  font-weight: 500;
+}
+.modal .label {
+  font-size: 20px;
+  font-weight: 600;
+}/*# sourceMappingURL=style.css.map */

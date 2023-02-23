@@ -1,0 +1,28 @@
+@import 'vars';
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: $body-fonts;
+    line-height: 1.6;
+    background-color: $color-1;
+}
+a, .btn
+{
+    scroll-behavior: smooth;
+    transition: 0.4s;
+}
+table, th, td, tr
+{
+    border:2px solid $color-2;
+}
+tfoot tr td .btn-a {
+    width: 70%;
+    @extend %btn-1;
+    &:hover {
+        @extend %btn-2;
+    }
+}
