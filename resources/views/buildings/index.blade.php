@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'index')
+@section('title', 'Immeubles')
 @section('content')
 <div class="add m-5 d-flex justify-content-center align-items-center">
         <a href="" class="material-symbols-outlined">Add</a>
@@ -28,10 +28,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="row">
-                            <a href="" class="btn btn-E col-12 mb-2">Étages</a>
-                        </div>
-                        <div class="row d-flex justify-content-between">
+                        <div class="row d-flex justify-content-between mt-4 mb-2">
                             <a href="" class="btn btn-M col-5">Modifier</a>
                             <a href="" class="btn btn-S col-5">Supprimer</a>
                         </div>

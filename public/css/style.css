@@ -16,13 +16,13 @@ a, .btn {
   transition: 0.4s;
 }
 
-.login .btn, .content .card .btn-E, .navbar .btn {
+.login .btn, .content .card .btn-M, .navbar .btn {
   background-color: #00adbb;
   border: none;
   color: #ffffff;
 }
 
-.login .btn:hover, .content .card .btn-E:hover, .navbar .btn:hover {
+.login .btn:hover, .content .card .btn-M:hover, .navbar .btn:hover {
   background-color: #ffffff;
   border: 1px solid #00adbb;
   color: #00adbb;
@@ -40,18 +40,6 @@ a, .btn {
   color: #f14a4a;
 }
 
-.content .card .btn-M {
-  background-color: #007ee5;
-  border: none;
-  color: #ffffff;
-}
-
-.content .card .btn-M:hover {
-  background-color: #ffffff;
-  border: 1px solid #007ee5;
-  color: #007ee5;
-}
-
 .navbar {
   background-color: #ffffff;
   box-shadow: 0 4px 16px 0 rgba(2, 112, 119, 0.1803921569), 0 6px 40px 0 rgba(2, 112, 119, 0.1803921569);
@@ -67,7 +55,7 @@ a, .btn {
   width: 65px;
 }
 .navbar .container-fluid {
-  margin: 0 5px;
+  margin: 0 20px;
 }
 
 .add .material-symbols-outlined {
@@ -96,10 +84,10 @@ a, .btn {
   font-size: xx-large;
 }
 .content .card .btn-M {
-  width: 49%;
+  width: 47%;
 }
 .content .card .btn-S {
-  width: 49%;
+  width: 47%;
 }
 .loginLogo {
   margin: 50px auto;

@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 class StaticController extends Controller
 {
     public function login() {
-        return view('login');
-    }
-    public function buildings() {
-        return view('buildings.index');
+        return view('auth.login');
     }
     public function domains() {
         return view('domains.index');

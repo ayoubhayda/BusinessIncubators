@@ -15,8 +15,12 @@ use App\Http\Controllers\BuildingsController;
 |
 */
 
-Route::get('/', )->name('login');
+Route::get('/', [StaticController::class, 'login'])->name('login');
 Route::resource('buildings', BuildingsController::class);
 Route::get('/cities', [StaticController::class, 'cities'])->name('cities.index');
 Route::get('/domains', [StaticController::class, 'domains'])->name('domains.index');
 Route::get('/accounts', [StaticController::class, 'account'])->name('account.index');
+
+Auth::routes();
+
+Route::get('/home', [BuildingsController::class, 'index'])->name('home');

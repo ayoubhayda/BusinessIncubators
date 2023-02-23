@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet"
@@ -13,26 +15,42 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-sm ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img class="logo" src="{{ url('images/logo.png') }}"
                     alt=""></a>
+
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route('cities.index')}}">Villes</a>
+                    <a class="nav-link" href="{{ route('buildings.index') }}">Immeubles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('buildings.index')}}">Immeubles</a>
+                    <a class="nav-link active" href="{{ route('cities.index') }}">Villes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('domains.index')}}">Domaines</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('account.index')}}">Profile</a>
+                    <a class="nav-link" href="{{ route('domains.index') }}">Domaines</a>
                 </li>
             </ul>
-            <a class="btn btn-primary" href="#">Déconexion</a>
+            <div class="dropdown">
+                <a id="navbarDropdown" class="btn dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Paramètres</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Déconnexion') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
         </div>
     </nav>
     <div>

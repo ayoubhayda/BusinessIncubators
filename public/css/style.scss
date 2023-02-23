@@ -29,7 +29,7 @@
     }
 
     .container-fluid {
-        margin: 0 5px;
+        margin: 0 20px;
     }
 }
 
@@ -65,26 +65,17 @@
             font-size: xx-large;
         }
 
-        .btn-E {
+        .btn-M {
             @extend %btn-1;
-
+            width: 47%;
             &:hover {
                 @extend %btn-2
             }
         }
 
-        .btn-M {
-            @extend %btn-5;
-            width: 49%;
-
-            &:hover {
-                @extend %btn-6
-            }
-        }
-
         .btn-S {
             @extend %btn-3;
-            width: 49%;
+            width: 47%;
 
             &:hover {
                 @extend %btn-4

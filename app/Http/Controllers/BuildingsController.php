@@ -31,9 +31,9 @@ class BuildingsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create()
     {
-        //
+        return view('buildings.create');
     }
 
     /**
