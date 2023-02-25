@@ -9,14 +9,14 @@ class DomainsController extends Controller
 {
     public function index()
     {
-        return view('domains.index',[
+        return view('admin.domains.index',[
             'domains' => Domain::all()
         ]
         );
     }
     public function create()
     {
-        return view('domains.index');
+        return view('admin.domains.index');
     }
     public function store(Request $request)
     {
@@ -35,7 +35,7 @@ class DomainsController extends Controller
     }
     public function edit($domain)
     {
-        return view('domains.index');
+        return view('admin.domains.index');
 
     }
     public function update(Request $request, $domain)

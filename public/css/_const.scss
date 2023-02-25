@@ -15,8 +15,7 @@ a, .btn
     scroll-behavior: smooth;
     transition: 0.4s;
 }
-<<<<<<< HEAD
-=======
+
 table, th, td, tr
 {
     border:2px solid $color-2;
@@ -28,4 +27,4 @@ tfoot tr td .btn-a {
         @extend %btn-2;
     }
 }
->>>>>>> aedbe9b0fcec5aaa776815479065a86ffd22fc9c
+

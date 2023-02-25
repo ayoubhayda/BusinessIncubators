@@ -10,14 +10,14 @@ class CitiesController extends Controller
 {
     public function index()
     {
-        return view('cities.index',[
+        return view('admin.cities.index',[
             'cities' => City::all()
         ]
         );
     }
     public function create()
     {
-        return view('cities.index');
+        return view('admin.cities.index');
     }
     public function store(Request $request)
     {
@@ -36,7 +36,7 @@ class CitiesController extends Controller
     }
     public function edit($city)
     {
-       return view('cities.index');
+       return view('admin.cities');
     }
     public function update(Request $request, $city)
     {

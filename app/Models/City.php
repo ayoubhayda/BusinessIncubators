@@ -10,4 +10,11 @@ class City extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function buildings()
+    {
+        return $this->hasMany(Building::class);
+    }
+        
+    
 }

@@ -1,31 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Str;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\Building;
+use App\Models\City;
 
 class BuildingsController extends Controller
 {
 
     //______________________________________________________________
-    private static function getData(){
-        return(
-            [
-                ['id' => 1,'name' => 'Tech Insider','address' => 'Route Sidi Bouzid','phone' => '+212636754865','logo' => 'images/logo1.png','city' => 'El Jadida'],
-                ['id' => 2,'name' => 'Aramco','address' => 'hay Salam','phone' => '+212746846792','logo' => 'images/logo1.png','city' => 'El Jadida'],
-                ['id' => 3,'name' => 'Step Tech','address' => 'Saada','phone' => '+212691675342','logo' => 'images/logo1.png','city' => 'El Jadida']
-            ]
-            );
-    }
         
     //______________________________________________________________
     public function index()
     {
-        return view('buildings.index',[
-            'buildings' => self::getData()
-        ]);
+        return view('admin.buildings.index')
+        ->with('buildings', Building::all())
+        ->with('cities', City::all());
     }
 
     /**
@@ -33,7 +26,8 @@ class BuildingsController extends Controller
      */
     public function create()
     {
-        return view('buildings.create');
+        return view('admin.buildings.create')
+        ->with('cities', City::all());
     }
 
     /**
@@ -41,13 +35,32 @@ class BuildingsController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'phone'=>'required',
+            'city'=>'required',
+            'logo'=>'required|mimes:jpg,png,jped|max:548',
+            'address'=>'required',
+        ]);
+        $slug = Str::of($request->name)->slug('-');
+        $newImageName = uniqid().'-'.$slug.'.'.$request->logo->extension();
+        $request->logo->move(public_path('images'),$newImageName);
+
+        Building::create([
+            'name' => $request->input('name'), 
+            'address' => $request->input('address'),
+            'phone' => $request->input('phone'), 
+            'logo' => 'images/'.$newImageName, 
+            'city_id' => $request->input('city')
+        ]);
+
+        return redirect()->route('buildings.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show(string $id) 
     {
         //
     }
@@ -55,24 +68,47 @@ class BuildingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): Response
+    public function edit($building) 
     {
-        //
+        return view('admin.buildings.edit')
+        ->with('building', Building::findOrFail($building))
+        ->with('cities', City::all());
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'phone'=>'required',
+            'city'=>'required',
+            'logo'=>'required|mimes:jpg,png,jped|max:548',
+            'address'=>'required',
+        ]);
+        $slug = Str::of($request->name)->slug('-');
+        $newImageName = uniqid().'-'.$slug.'.'.$request->logo->extension();
+        $request->logo->move(public_path('images'),$newImageName);
+
+        Building::where('id',$id)
+        ->update([
+            'name' => $request->input('name'), 
+            'address' => $request->input('address'),
+            'phone' => $request->input('phone'), 
+            'logo' => 'images/'.$newImageName, 
+            'city_id' => $request->input('city')
+        ]);
+
+        return redirect()->route('buildings.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy($id)
     {
-        //
+        Building::where('id',$id)->delete();
+        return redirect()->route('buildings.index');
     }
 }
