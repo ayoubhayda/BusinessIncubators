@@ -4,25 +4,40 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\DomainsController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\HomeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('login');
+
+
+//----------------------super admin routes ----------------------------
+
+Route::prefix('admin')->middleware(['auth','role:1'])->group(function (){
+    Route::resources([
+        'buildings'=> BuildingsController::class,
+        'cities'=> CitiesController::class,
+        'domains'=> DomainsController::class,
+    ]);
 });
-Route::resources([
-    '/buildings'=> BuildingsController::class,
-    '/cities'=> CitiesController::class,
-    '/domains'=> DomainsController::class,
-    '/users'=> UsersController::class
-]);
+
+
+
+//----------------------normal admin routes ----------------------------
+
+Route::prefix('admin')->middleware(['auth','role:0'])->group(function () {
+    Route::resources([
+        //
+    ]);
+});
+
+
+//----------------------public routes ----------------------------
+
+Route::get('/',[HomeController::class, 'index']);
+Route::get('/admin',[HomeController::class, 'login']);
+
+//----------------------auth routes ----------------------------
+
+Auth::routes();
+
+
+

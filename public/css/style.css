@@ -23,40 +23,52 @@ table, th, td, tr {
 tfoot tr td .btn-a {
   width: 70%;
 }
-.modal .btn-a, .login .btn, .content .card .btn-E, .navbar .btn, tfoot tr td .btn-a {
+.form-immeuble .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, tfoot tr td .btn-a {
   background-color: #00adbb;
   border: none;
   color: #ffffff;
 }
 
-.modal .btn-a:hover, .login .btn:hover, .content .card .btn-E:hover, .navbar .btn:hover, tfoot tr td .btn-a:hover {
+.form-immeuble .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, tfoot tr td .btn-a:hover {
   background-color: #ffffff;
   border: 1px solid #00adbb;
   color: #00adbb;
 }
 
-.modal .btn-d, .content .card .btn-S, .domainsTable form .btn-d, .citiesTable form .btn-d {
+.modal .btn-d, .content .btn-S, .domainsTable form .btn-d, .citiesTable form .btn-d {
   background-color: #f14a4a;
   border: none;
   color: #ffffff;
 }
 
-.modal .btn-d:hover, .content .card .btn-S:hover, .domainsTable form .btn-d:hover, .citiesTable form .btn-d:hover {
+.modal .btn-d:hover, .content .btn-S:hover, .domainsTable form .btn-d:hover, .citiesTable form .btn-d:hover {
   background-color: #ffffff;
   border: 1px solid #f14a4a;
   color: #f14a4a;
 }
 
-.content .card .btn-M, .domainsTable .btn-u, .citiesTable .btn-u {
+.domainsTable .btn-u, .citiesTable .btn-u {
   background-color: #007ee5;
   border: none;
   color: #ffffff;
 }
 
-.content .card .btn-M:hover, .domainsTable .btn-u:hover, .citiesTable .btn-u:hover {
+.domainsTable .btn-u:hover, .citiesTable .btn-u:hover {
   background-color: #ffffff;
   border: 1px solid #007ee5;
   color: #007ee5;
+}
+
+.form-immeuble .card form .btn-file {
+  background-color: #8e8e8e;
+  border: none;
+  color: #ffffff;
+}
+
+.form-immeuble .card form .btn-file:hover {
+  background-color: #ffffff;
+  border: 1px solid #8e8e8e;
+  color: #8e8e8e;
 }
 
 .domainsTable, .citiesTable {
@@ -88,24 +100,41 @@ tfoot tr td .btn-a {
   width: 65px;
 }
 .navbar .container-fluid {
-  margin: 0 5px;
+  margin: 0 20px;
 }
 
+.add .material-symbols-outlined {
+  font-size: 30px;
+  width: 20%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+  text-decoration: none;
+}
 .content .card {
   width: 30%;
   box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+  padding: 0%;
+}
+.content .card .card-header {
+  width: 100%;
+}
+.content .card .card-img {
+  width: 100%;
+  height: 40px;
 }
 .content .card .card-title {
   color: #00adbb;
   text-transform: uppercase;
   font-weight: bolder;
   font-size: xx-large;
+  margin: 10px 0;
 }
-.content .card .btn-M {
-  width: 49%;
+.content .btn-M {
+  width: 47%;
 }
-.content .card .btn-S {
-  width: 49%;
+.content .btn-S {
+  width: 47%;
 }
 .loginLogo {
   margin: 50px auto;
@@ -145,4 +174,34 @@ tfoot tr td .btn-a {
 .modal .label {
   font-size: 20px;
   font-weight: 600;
+}
+
+.form-immeuble .card {
+  box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
+  border-radius: 7px;
+}
+.form-immeuble .card .card-header {
+  background-color: #00adbb;
+  color: #ffffff;
+  padding: 10px;
+  font-size: large;
+}
+.form-immeuble .card form {
+  color: #182c4b;
+  padding: 10px;
+}
+.form-immeuble .card form .dropdown {
+  scroll-behavior: smooth;
+  transition: 500ms;
+}
+.form-immeuble .card form .dropdown option {
+  background-color: #ffffff;
+  color: #182c4b;
+}
+.form-immeuble .card form .btn-submit {
+  width: 100%;
+}
+.form-immeuble .card form .btn-file {
+  scroll-behavior: smooth;
+  transition: 300ms;
 }/*# sourceMappingURL=style.css.map */

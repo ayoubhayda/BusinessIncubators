@@ -3,6 +3,8 @@
 @import 'const';
 @import 'buttons';
 @import 'tables';
+//@import 'button';
+
 
 //--navbar
 .navbar {
@@ -15,9 +17,11 @@
             color: $color-2;
         }
     }
+
     .logo {
         width: 65px;
     }
+
     .btn {
         @extend %btn-1;
 
@@ -25,43 +29,69 @@
             @extend %btn-2;
         }
     }
+
     .container-fluid {
-        margin: 0 5px;
+        margin: 0 20px;
     }
 }
+
+//--home page style cards
+
+.add{
+    .material-symbols-outlined{
+        @extend %btn-1;
+        font-size: 30px;
+        width: 20%;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
+        text-decoration: none;
+        &:hover{
+            @extend %btn-2;
+        }
+    }
+}
+
 //--home page style cards
 .content {
     .card {
         width: 30%;
         box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
+        padding: 0%;
+        .card-header{
+            width: 100%;
+        }
+        .card-img{
+            width: 100%;
+            height: 40px;
+        }
         .card-title {
             color: $color-2;
             text-transform: uppercase;
             font-weight: bolder;
             font-size: xx-large;
-        }
-        .btn-E {
-            @extend %btn-1;
-            &:hover {
-                @extend %btn-2;
-            }
-        }
-        .btn-M {
-            @extend %btn-5;
-            width: 49%;
-            &:hover {
-                @extend %btn-6;
-            }
-        }
-        .btn-S {
-            @extend %btn-3;
-            width: 49%;
-            &:hover {
-                @extend %btn-4;
-            }
+            margin: 10px 0;
         }
     }
+
+        .btn-M {
+            @extend %btn-1;
+            width: 47%;
+            &:hover {
+                @extend %btn-2
+            }
+        }
+
+        .btn-S {
+            @extend %btn-3;
+            width: 47%;
+
+            &:hover {
+                @extend %btn-4
+            }
+    }
 }
+
 //--login page
 .loginLogo {
     margin: 50px auto;
@@ -96,6 +126,7 @@
         }
     }
 }
+
 //--table
 .citiesTable
 {
@@ -124,5 +155,47 @@
     @extend %btn-3;
     &:hover {
         @extend %btn-4;
+    }
+}
+
+//--form immeuble
+
+.form-immeuble{
+    .card{
+        box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
+        border-radius: 7px;
+        .card-header{
+            background-color: $color-2;
+            color: $color-1;
+            padding: 10px;
+            font-size: large;
+        }
+        form{
+            color: $font-color-1;
+            padding: 10px;
+            .dropdown{
+                scroll-behavior: smooth;
+                transition: 500ms;
+                option{
+                    background-color: $color-1;
+                    color: $font-color-1;
+                }
+            }
+            .btn-submit{
+                @extend %btn-1;
+                width: 100%;
+                &:hover{
+                    @extend %btn-2;
+                }
+            }
+            .btn-file{
+                @extend %btn-7;
+                scroll-behavior: smooth;
+                transition: 300ms;
+                &:hover{
+                    @extend %btn-8;
+                }
+            }
+        }
     }
 }

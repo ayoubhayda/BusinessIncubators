@@ -1,6 +1,7 @@
-@extends('layout')
-@section('title','Domaines')
+@extends('layouts.layout')
+@section('title','Domaines norm')
 @section('content')
+    <div class="container-fluid d-flex justify-content-center">
     <div class="mt-4">
         <table class="table text-center domainsTable">
             <thead>
@@ -92,4 +93,5 @@
         </div> 
     </div>
     <script src="{{url('javascript/domains.js')}}"></script>
+    </div>
 @endsection
