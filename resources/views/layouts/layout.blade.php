@@ -31,6 +31,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('domains.index') }}">Domaines</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('users.index') }}">Utilisateurs</a>
+                </li>
             </ul>
             <div class="dropdown">
                 <a id="navbarDropdown" class="btn dropdown-toggle" href="#" role="button"

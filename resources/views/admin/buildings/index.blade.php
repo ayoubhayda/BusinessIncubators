@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Immeubles super')
+@section('title', 'Immeubles')
 @section('content')
     <div class="add mt-4 mb-3 d-flex justify-content-center align-items-center">
         <a href={{ route('buildings.create') }} class="material-symbols-outlined">Add</a>

@@ -87,7 +87,7 @@
             width: 47%;
 
             &:hover {
-                @extend %btn-4
+                @extend %btn-4;
             }
     }
 }
@@ -133,6 +133,14 @@
     @extend %body-table;
 }
 .domainsTable
+{
+    @extend %body-table;
+}
+.usersTable
+{
+    @extend %body-table;
+}
+.floorsTable
 {
     @extend %body-table;
 }

@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Modifier super')
+@section('title', "Modifier l'immeuble")
 @section('content')
     <div class=" container mt-5">
         <div class="form-immeuble row justify-content-center">

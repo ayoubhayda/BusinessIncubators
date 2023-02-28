@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title','Domaines norm')
+@section('title','Domaines')
 @section('content')
     <div class="container-fluid d-flex justify-content-center">
     <div class="mt-4">
@@ -41,7 +41,7 @@
                                     <label for="domain-name" class="form-label">Nom du domaine</label>
                                     <input type="text" class="form-control" id="domain-name" name ="domain-name" value="{{$domain['name']}}">
                                     @error('domain-name')
-                                        <span class="text-danger">* {{$message}}</span> 
+                                        <span class="text-danger">* {{$message}}</span> <br>
                                     @enderror  
                 
                                     <div class="modal-footer">
@@ -77,9 +77,9 @@
                             @csrf
                             @method('POST')
                             <label for="new-domain-name" class="form-label">Nom du domaine</label>
-                            <input type="text" class="form-control" id="new-domain-name" name ="new-domain-name" value="{{old('domain-name')}}">
+                            <input type="text" class="form-control" id="new-domain-name" name ="new-domain-name" value="{{old('new-domain-name')}}">
                             @error('new-domain-name')
-                                <span class="text-danger">* {{$message}}</span> 
+                                <span class="text-danger">* {{$message}}</span> <br>
                             @enderror  
         
                             <div class="modal-footer">
