@@ -20,11 +20,11 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <td>Ville</td>
-                                        <td>{{ $cities->where('id',$building['city_id'])->first()->name }}</td>
+                                        <td>{{$building->city->name}}</td>
                                     </tr>
                                     <tr>
                                         <td>Adresse</td>
-                                        <td>{{ $building['address'] }}</td>
+                                        <td>{{ $building->address }}</td>
                                     </tr>
                                     <tr>
                                         <td>Tele</td>
