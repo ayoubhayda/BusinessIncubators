@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 @section('title','Villes')
+@section('styles')
+{{--    styles for this page--}}
+@endsection
 @section('content')
     <div class="conatiner-fluid d-flex justify-content-center">
         <div class="mt-4">
@@ -13,20 +16,20 @@
                 <tbody>
                 @foreach ($cities as $city)
                     <tr>
-                        <td>{{$city['name']}}</td>
+                        <td>{{$city->name}}</td>
                         <td>
                             <div class="text-center">
                                 <a href="#updateModal{{$city->id}}" class="link upt-link btn btn-u" data-bs-toggle="modal">Modifier</a>
-                            </div>                    
+                            </div>
                         </td>
                         <td class="pt-2">
                             <form action="{{route('cities.destroy',['city'=>$city->id])}}" method="POST" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" class="link dlt-link btn btn-d" value="Supprimer">
-                            </form>            
+                            </form>
                         </td>
-                    </tr>               
+                    </tr>
                     <div class="modal fade" id="updateModal{{$city->id}}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -41,18 +44,18 @@
                                         <label for="city-name" class="form-label">Nom de la ville</label>
                                         <input type="text" class="form-control" id="city-name" name ="city-name" value="{{$city['name']}}">
                                         @error('city-name')
-                                            <span class="text-danger">* {{$message}}</span> <br>
+                                            <span class="text-danger">* {{$message}}</span> 
                                         @enderror  
                     
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                             <input type="submit" class="link btn btn-a  add-link" value="Modifier">
                                         </div>
-                                    </form>           
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>               
+                    </div>
                 @endforeach
                 </tbody>
                 <tfoot>
@@ -60,7 +63,7 @@
                         <td colspan="3">
                             <div class="text-center">
                                 <a href="#addModal" class="link btn btn-a" data-bs-toggle="modal">Ajouter</a>
-                            </div>                    
+                            </div>
                         </td>
                     </tr>
                 </tfoot>
@@ -75,23 +78,25 @@
                         <div class="modal-body">
                             <form id="add-city-form" action="{{route('cities.store')}}" method="POST">
                                 @csrf
-                                @method('POST')
+                                @methosd('POST')
                                 <label for="new-city-name" class="form-label">Nom de la ville</label>
-                                <input type="text" class="form-control" id="new-city-name" name ="new-city-name" value="{{old('new-city-name')}}">
+                                <input type="text" class="form-control" id="new-city-name" name ="new-city-name" value="{{old('city-name')}}">
                                 @error('new-city-name')
-                                    <span class="text-danger">* {{$message}}</span> <br>
+                                    <span class="text-danger">* {{$message}}</span> 
                                 @enderror  
             
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                     <input type="submit" class="link btn btn-a" value="Ajouter">
                                 </div>
-                            </form>           
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
-        <script src="{{url('javascript/cities.js')}}"></script>
     </div>
+@endsection
+@section('scripts')
+    <script src="{{url('javascript/cities.js')}}"></script>
 @endsection

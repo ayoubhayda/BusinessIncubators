@@ -22,12 +22,10 @@ class CitiesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'new-city-name' => ['required','string']
+            'name' => ['required','string']
         ]);
-        $city = new City();
-        $city->name = strip_tags($request->input('new-city-name'));
-        $city->slug = Str::slug($city->name);
-        $city->save();
+        City::create($request->all());
+
         return redirect()->route('cities.index');
     }
     public function show($city)
@@ -38,21 +36,17 @@ class CitiesController extends Controller
     {
        return view('admin.cities');
     }
-    public function update(Request $request, $city)
+    public function update(Request $request,City $city)
     {
         $request->validate([
-            'city-name' => ['required','string'],
+            'name' => ['required','string'],
         ]);
-        $toUpdate = City::findOrFail($city);
-        $toUpdate->name = strip_tags($request->input('city-name'));
-        $toUpdate->slug = Str::slug($toUpdate->name);
-        $toUpdate->save();
+        $city->update($request->all());
         return redirect()->route('cities.index');
     }
-    public function destroy($city)
+    public function destroy(City $city)
     {
-        $toDelete = City::findOrFail($city);
-        $toDelete->delete();
+        $city->delete();
         return redirect()->route('cities.index');
     }
 }
