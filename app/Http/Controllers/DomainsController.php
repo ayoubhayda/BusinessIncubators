@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use App\Models\Domain;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class DomainsController extends Controller
 {
@@ -21,12 +23,10 @@ class DomainsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'new-domain-name' => ['required','string']
+            'name' => ['required','string', 'unique:domains']
         ]);
-        $domain = new Domain();
-        $domain->name = strip_tags($request->input('new-domain-name'));
-        $domain->slug = Str::slug($domain->name);
-        $domain->save();
+        Domain::create($request->all());
+
         return redirect()->route('domains.index');
     }
     public function show($domain)
@@ -35,26 +35,19 @@ class DomainsController extends Controller
     }
     public function edit($domain)
     {
-        return view('admin.domains.index');
-
+       return view('admin.domains.index');
     }
-    public function update(Request $request, $domain)
+    public function update(Request $request,Domain $domain)
     {
         $request->validate([
-            'domain-name' => ['required','string'],
+            'name' => ['required','string',Rule::unique('domains')->ignore($domain)],
         ]);
-        $toUpdate = Domain::findOrFail($domain);
-        $toUpdate->name = strip_tags($request->input('domain-name'));
-        $toUpdate->slug = Str::slug($toUpdate->name);
-        $toUpdate->save();
+        $domain->update($request->all());
         return redirect()->route('domains.index');
-
     }
-    public function destroy($domain)
+    public function destroy(Domain $domain)
     {
-        $toDelete = Domain::findOrFail($domain);
-        $toDelete->delete();
+        $domain->delete();
         return redirect()->route('domains.index');
-
     }
 }
