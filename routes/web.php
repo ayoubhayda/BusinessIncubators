@@ -6,6 +6,8 @@ use App\Http\Controllers\DomainsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FloorsController;
+use App\Http\Controllers\OfficesController;
+
 
 
 
@@ -16,7 +18,7 @@ Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
     Route::delete('buildings/{building}/destroy', [BuildingsController::class, 'destroy'])->name('buildings.destroy');
     // Create a new building
     Route::get('buildings/create', [BuildingsController::class, 'create'])->name('buildings.create');
-    Route::put('buildings/store', [BuildingsController::class, 'store'])->name('buildings.store');
+    Route::post('buildings/store', [BuildingsController::class, 'store'])->name('buildings.store');
     // Manage cities and domains
     Route::resources([
         'cities' => CitiesController::class,
@@ -43,6 +45,10 @@ Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
     // Manage floors
     Route::resources([
         'floors' => FloorsController::class,
+        'offices' => OfficesController::class,
+        //'companies' => CompaniesController::class,
+        //'employees' => EmployeesController::class,
+        //'complaints' => ComplaintsController::class,
     ]);
 });
 

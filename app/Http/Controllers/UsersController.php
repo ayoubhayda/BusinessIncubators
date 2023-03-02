@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStore;
+use App\Http\Requests\UserUpdate;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -32,18 +34,11 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStore $request)
     {
-        $request->validate([
-            'new-user-name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'new-user-password' => ['required', 'string', 'min:8'],
-        ]);
-        $user = new User();
-        $user->name = strip_tags($request->input('new-user-name'));
-        $user->email = strip_tags($request->input('email'));
-        $user->password = Hash::make($request->input('new-user-password'));
-        $user->save();
+        $request->validated();
+        $request->merge(['password' => bcrypt($request->password)]);
+        User::create($request->all());
         return redirect()->route('users.index');
 
     }
@@ -67,18 +62,11 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $user)
+    public function update(UserUpdate $request,User $user)
     {
-        $request->validate([
-            'user-name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
-            'user-password' => ['required', 'string', 'min:8'],
-        ]);
-        $toUpdate = User::findOrFail($user);
-        $toUpdate->name = strip_tags($request->input('user-name'));
-        $toUpdate->email = strip_tags($request->input('email'));
-        $toUpdate->password = Hash::make($request->input('user-password'));
-        $toUpdate->save();
+        $request->validated();
+        $request->merge(['password' => bcrypt($request->password)]);
+        $user->update($request->all());
         return redirect()->route('users.index');
     }
 
@@ -87,8 +75,7 @@ class UsersController extends Controller
      */
     public function destroy($user)
     {
-        $toDelete = User::findOrFail($user);
-        $toDelete->delete();
+        $user->delete();
         return redirect()->route('users.index');
     }
 }

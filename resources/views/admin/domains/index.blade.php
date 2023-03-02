@@ -26,7 +26,7 @@
                             <form action="{{route('domains.destroy',['domain'=>$domain->id])}}" method="POST" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="link dlt-link btn btn-d" value="Supprimer">
+                                <input type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ce domaine ?')"  class="link dlt-link btn btn-d" value="Supprimer">
                             </form>
                         </td>
                     </tr>
@@ -74,7 +74,7 @@
                         <div class="modal-body">
                             <form id="add-domain-form" action="{{route('domains.store')}}" method="POST">
                                 @csrf
-                                @methosd('POST')
+                                @method('POST')
                                 <label for="new-domain-name" class="form-label">Nom du domaine</label>
                                 <input type="text" class="form-control" id="new-domain-name" name ="name" value="{{old('name')}}" required>
                                 <div class="modal-footer">
@@ -89,6 +89,7 @@
         </div>
     </div>
 @endsection
-@section('scripts')
+{{-- @section('scripts')
     <script src="{{url('javascript/domains.js')}}"></script>
 @endsection
+ --}}

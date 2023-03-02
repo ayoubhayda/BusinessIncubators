@@ -14,8 +14,8 @@
                 <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{$user['name']}}</td>
-                        <td>{{$user['email']}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
                         <td>
                             <div class="text-center">
                                 <a href="#updateModal{{$user->id}}" class="link upt-link btn btn-u" data-bs-toggle="modal">Modifier</a>
@@ -25,7 +25,7 @@
                             <form action="{{route('users.destroy',['user'=>$user->id])}}" method="POST" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="link dlt-link btn btn-d" value="Supprimer">
+                                <input type="submit"  onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')"  class="link dlt-link btn btn-d" value="Supprimer">
                             </form>            
                         </td>
                     </tr>               
@@ -40,21 +40,12 @@
                                     <form action="{{route('users.update',['user'=>$user->id])}}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                            <label for="user-name" class="form-label">Nom</label>
-                                            <input type="text" class="form-control" id="user-name" name ="user-name" value="{{$user['name']}}">
-                                            @error('user-name')
-                                                <span class="text-danger">* {{$message}}</span> <br>
-                                            @enderror  
+                                            <label for="name" class="form-label">Nom</label>
+                                            <input type="text" class="form-control" id="name" name ="name" value="{{$user->name}}" required>
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="email" name ="email" value="{{$user['email']}}">
-                                            @error('email')
-                                                <span class="text-danger">* {{$message}}</span> <br>
-                                            @enderror  
-                                            <label for="user-password" class="form-label">Mot de passe</label>
-                                            <input type="password" class="form-control" id="user-password" name ="user-password" value="{{$user['password']}}">
-                                            @error('user-password')
-                                                <span class="text-danger">* {{$message}}</span> <br>
-                                            @enderror  
+                                            <input type="text" class="form-control" id="email" name ="email" value="{{$user->email}}" required>
+                                            <label for="password" class="form-label">Mot de passe</label>
+                                            <input type="password" class="form-control" id="password" name ="password" value="{{$user->password}}" required>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                             <input type="submit" class="link btn btn-a  add-link" value="Modifier">
@@ -84,24 +75,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{route('users.store')}}" method="POST">
+                            <form id="add-user-form" action="{{route('users.store')}}" method="POST">
                                 @csrf
                                 @method('POST')
-                                    <label for="new-user-name" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" id="new-user-name" name ="new-user-name" value="{{old('new-user-name')}}">
-                                    @error('new-user-name')
-                                        <span class="text-danger">* {{$message}}</span> <br>
-                                    @enderror  
+                                    <label for="name" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" id="name" name ="name" value="{{old('name')}}" required>
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" name ="email" value="{{old('email')}}">
-                                    @error('email')
-                                        <span class="text-danger">* {{$message}}</span> <br>
-                                    @enderror  
-                                    <label for="new-user-password" class="form-label">Mot de passe</label>
-                                    <input type="password" class="form-control" id="new-user-password" name ="new-user-password" value="{{old('new-user-password')}}">
-                                    @error('new-user-password')
-                                        <span class="text-danger">* {{$message}}</span> <br>
-                                    @enderror  
+                                    <input type="text" class="form-control" id="email" name ="email" value="{{old('email')}}" required>
+                                    <label for="password" class="form-label">Mot de passe</label>
+                                    <input type="password" class="form-control" id="password" name ="password" value="{{old('password')}}" required>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                     <input type="submit" class="link btn btn-a" value="Ajouter">
@@ -112,6 +94,9 @@
                 </div>
             </div> 
         </div>
-        <script src="{{url('javascript/users.js')}}"></script>
     </div>
 @endsection
+{{-- @section('scripts')
+    <script src="{{url('javascript/users.js')}}"></script>
+@endsection
+ --}}

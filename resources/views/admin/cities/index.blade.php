@@ -26,7 +26,7 @@
                             <form action="{{route('cities.destroy',['city'=>$city->id])}}" method="POST" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="link dlt-link btn btn-d" value="Supprimer">
+                                <input type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette ville ?')" class="link dlt-link btn btn-d" value="Supprimer">
                             </form>
                         </td>
                     </tr>
@@ -42,7 +42,7 @@
                                         @csrf
                                         @method('PUT')
                                         <label for="city-name" class="form-label">Nom de la ville</label>
-                                        <input type="text" class="form-control" id="city-name" name ="name" value="{{$city->name}}">
+                                        <input type="text" class="form-control" id="city-name" name ="name" value="{{$city->name}}" required>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                             <input type="submit" class="link btn btn-a  add-link" value="Modifier">
@@ -74,9 +74,9 @@
                         <div class="modal-body">
                             <form id="add-city-form" action="{{route('cities.store')}}" method="POST">
                                 @csrf
-                                @methosd('POST')
+                                @method('Post')
                                 <label for="new-city-name" class="form-label">Nom de la ville</label>
-                                <input type="text" class="form-control" id="new-city-name" name ="name" value="{{old('name')}}">
+                                <input type="text" class="form-control" id="new-city-name" name ="name" value="{{old('name')}}" required>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                     <input type="submit" class="link btn btn-a" value="Ajouter">
@@ -89,6 +89,7 @@
         </div>
     </div>
 @endsection
-@section('scripts')
+{{-- @section('scripts')
     <script src="{{url('javascript/cities.js')}}"></script>
 @endsection
+ --}}

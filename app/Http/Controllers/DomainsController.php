@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Str;
+use App\Http\Requests\DomainStore;
+use App\Http\Requests\DomainUpdate;
 use App\Models\Domain;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 
 class DomainsController extends Controller
@@ -20,11 +19,9 @@ class DomainsController extends Controller
     {
         return view('admin.domains.index');
     }
-    public function store(Request $request)
+    public function store(DomainStore $request)
     {
-        $request->validate([
-            'name' => ['required','string', 'unique:domains']
-        ]);
+        $request->validated();
         Domain::create($request->all());
 
         return redirect()->route('domains.index');
@@ -37,11 +34,9 @@ class DomainsController extends Controller
     {
        return view('admin.domains.index');
     }
-    public function update(Request $request,Domain $domain)
+    public function update(DomainUpdate $request,Domain $domain)
     {
-        $request->validate([
-            'name' => ['required','string',Rule::unique('domains')->ignore($domain)],
-        ]);
+        $request->validated();
         $domain->update($request->all());
         return redirect()->route('domains.index');
     }
