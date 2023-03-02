@@ -16,20 +16,13 @@ a, .btn {
   transition: 0.4s;
 }
 
-table, th, td, tr {
-  border: 2px solid #00adbb;
-}
-
-tfoot tr td .btn-a {
-  width: 70%;
-}
-.form-immeuble .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, tfoot tr td .btn-a {
+.form-immeuble .card form .btn-file, .form-immeuble .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
   background-color: #00adbb;
   border: none;
   color: #ffffff;
 }
 
-.form-immeuble .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, tfoot tr td .btn-a:hover {
+.form-immeuble .card form .btn-file:hover, .form-immeuble .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .domainsTable tfoot tr td .btn-a:hover, .citiesTable tfoot tr td .btn-a:hover {
   background-color: #ffffff;
   border: 1px solid #00adbb;
   color: #00adbb;
@@ -59,22 +52,21 @@ tfoot tr td .btn-a {
   color: #007ee5;
 }
 
-.form-immeuble .card form .btn-file {
-  background-color: #8e8e8e;
-  border: none;
-  color: #ffffff;
-}
-
-.form-immeuble .card form .btn-file:hover {
-  background-color: #ffffff;
-  border: 1px solid #8e8e8e;
-  color: #8e8e8e;
-}
-
 .domainsTable, .citiesTable {
   box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
   width: 900px;
   color: #182c4b;
+}
+.domainsTable tr, .citiesTable tr {
+  border: 2px solid #00adbb;
+}
+.domainsTable tr td, .citiesTable tr td, .domainsTable tr th, .citiesTable tr th {
+  border: 2px solid #00adbb;
+  border-top: none;
+  border-bottom: none;
+}
+.domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
+  width: 70%;
 }
 .domainsTable .btn-u, .citiesTable .btn-u {
   width: 70%;
@@ -185,6 +177,9 @@ tfoot tr td .btn-a {
   color: #ffffff;
   padding: 10px;
   font-size: large;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-align: center;
 }
 .form-immeuble .card form {
   color: #182c4b;
@@ -200,8 +195,15 @@ tfoot tr td .btn-a {
 }
 .form-immeuble .card form .btn-submit {
   width: 100%;
+  text-transform: uppercase;
+  font-size: large;
 }
-.form-immeuble .card form .btn-file {
-  scroll-behavior: smooth;
-  transition: 300ms;
+.form-immeuble .card form #upload {
+  opacity: 0;
+}
+.form-immeuble .card form #upload-label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
 }/*# sourceMappingURL=style.css.map */

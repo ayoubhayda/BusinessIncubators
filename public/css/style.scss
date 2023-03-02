@@ -169,6 +169,9 @@
             color: $color-1;
             padding: 10px;
             font-size: large;
+            text-transform: uppercase;
+            font-weight: bolder;
+            text-align: center;
         }
         form{
             color: $font-color-1;
@@ -184,17 +187,29 @@
             .btn-submit{
                 @extend %btn-1;
                 width: 100%;
+                text-transform: uppercase;
+                font-size: large;
                 &:hover{
                     @extend %btn-2;
                 }
             }
+            
             .btn-file{
-                @extend %btn-7;
-                scroll-behavior: smooth;
-                transition: 300ms;
+                @extend %btn-1;
                 &:hover{
-                    @extend %btn-8;
+                    @extend %btn-2;
                 }
+            }
+        
+            #upload {
+                opacity: 0;
+            }
+            
+            #upload-label {
+                position: absolute;
+                top: 50%;
+                left: 1rem;
+                transform: translateY(-50%);
             }
         }
     }
