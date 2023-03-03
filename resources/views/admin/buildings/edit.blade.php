@@ -44,8 +44,8 @@
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
-                                    <label for="city" class="form-label">Ville</label>
-                                    <select id="city" name="city" value="{{$building->city_id}}" class="dropdown btn-file form-select">
+                                    <label for="city_id" class="form-label">Ville</label>
+                                    <select id="city_id" name="city_id" value="{{$building->city_id}}" class="dropdown btn-file form-select">
                                             <option>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 @if ($city->id == $building->city_id)
@@ -53,6 +53,9 @@
                                                 @endif
                                             @endforeach
                                       </select>
+                                      @error('city_id')
+                                        <span class="small text-danger">* {{ $message }}</span>
+                                    @enderror
                                 </div>
 
                                 <div class="col">

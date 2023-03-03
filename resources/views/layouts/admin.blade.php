@@ -23,16 +23,10 @@
                     alt=""></a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('cities.index') }}">Villes</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('buildings.index') }}">Immeubles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('domains.index') }}">Domaines</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('users.index') }}">Utilisateurs</a>
+                    <a class="nav-link" href="#">Immeubles</a>
                 </li>
             </ul>
             <div class="dropdown">
@@ -41,14 +35,11 @@
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Paramètres</a>
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit()">
                         {{ __('Déconnexion') }}
                     </a>
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
@@ -57,19 +48,12 @@
         </div>
     </nav>
     <div>
-        @yield('content')
+        @yield('content1')
     </div>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
     </script>
     @yield('scripts')
 </body>

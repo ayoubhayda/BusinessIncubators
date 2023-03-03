@@ -35,17 +35,23 @@
                                                 <option value={{$user->id}}>{{$user->name}}</option>
                                             @endforeach
                                       </select>
+                                      @error('user_id')
+                                        <span class="small text-danger">* {{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
-                                    <label for="city" class="form-label">Ville</label>
-                                    <select id="city" name="city" class="dropdown btn-file form-select">
+                                    <label for="city_id" class="form-label">Ville</label>
+                                    <select id="city_id" name="city_id" class="dropdown btn-file form-select">
                                             <option>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 <option value={{$city->id}}>{{$city->name}}</option>
                                             @endforeach
                                       </select>
+                                      @error('city_id')
+                                        <span class="small text-danger">* {{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col">
                                     <label for="logo" class="form-label">Logo</label>
