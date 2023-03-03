@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Ajouter un immeuble')
 @section('content')
-    <div class=" container mt-5">
+    <div class=" container mt-4">
         <div class="form-immeuble row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -11,14 +11,14 @@
                     <div class="card-body">
                         <form action="{{ route('buildings.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom d'immeuble</label>
+                                <input type="text" class="form-control" placeholder="Nom d'immeuble" name="name">
+                                @error('name')
+                                    <span class="small text-danger">* {{ $message }}</span>
+                                @enderror
+                            </div>
                             <div class="row mb-3 mt-1">
-                                <div class="col">
-                                    <label for="name" class="form-label">Nom d'immeuble</label>
-                                    <input type="text" class="form-control" placeholder="Nom d'immeuble" name="name">
-                                    @error('name')
-                                        <span class="small text-danger">* {{ $message }}</span>
-                                    @enderror
-                                </div>
                                 <div class="col">
                                     <label for="phone" class="form-label">Numéro de téléphone</label>
                                     <input type="tel" class="form-control" placeholder="Numéro de téléphone"
@@ -27,14 +27,23 @@
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="col">
+                                    <label for="user_id" class="form-label">Utilisateur</label>
+                                    <select id="user_id" name="user_id" class="dropdown form-select">
+                                            <option disabled selected hidden>Sélectionnez un Utilisateur</option>
+                                            @foreach ($users as $user)
+                                                <option value={{$user->id}}>{{$user->name}}</option>
+                                            @endforeach
+                                      </select>
+                                </div>
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
-                                    <label for="city" class="form-label">Ville</label>
-                                    <select id="city" name="city" class="dropdown btn-file form-select">
-                                            <option>Sélectionnez une ville</option>
+                                    <label for="city_id" class="form-label">Ville</label>
+                                    <select id="city_id" name="city_id" class="dropdown form-select">
+                                            <option disabled selected hidden>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
-                                                <option value={{$city['id']}}>{{$city['name']}}</option>
+                                                <option value={{$city->id}}>{{$city->name}}</option>
                                             @endforeach
                                       </select>
                                 </div>
@@ -62,7 +71,7 @@
                                     <span class="small text-danger">* {{ $message }}</span>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-submit mb-2 mt-3">ajouter</button>
+                            <button type="submit" class="btn btn-submit mb-1 mt-3">ajouter</button>
                         </form>
                     </div>
                 </div>

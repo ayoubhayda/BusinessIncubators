@@ -13,15 +13,14 @@
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div class="row mb-3 mt-1">
-                                <div class="col">
-                                    <label for="name" class="form-label">Nom d'immeuble</label>
-                                    <input type="text" class="form-control" value="{{ $building->name }}"
-                                        placeholder="Nom d'immeuble" name="name">
-                                    @error('name')
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom d'immeuble</label>
+                                <input type="text" class="form-control" placeholder="Nom d'immeuble" name="name">
+                                @error('name')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
-                                </div>
+                            </div>
+                            <div class="row mb-3 mt-1">
                                 <div class="col">
                                     <label for="phone" class="form-label">Numéro de téléphone</label>
                                     <input type="tel" class="form-control" value="{{ $building->phone }}"
@@ -30,15 +29,29 @@
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="col">
+                                    <label for="user_id" class="form-label">Utilisateur</label>
+                                    <select id="city" name="user_id" class="dropdown form-select">
+                                            <option disabled selected hidden>Sélectionnez un Utilisateur</option>
+                                            @foreach ($users as $user)
+                                                <option value={{$user->id}}>{{$user->name}}</option>
+                                            @endforeach
+                                      </select>
+                                      @error('user_id')
+                                        <span class="small text-danger">* {{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
-                                    <label for="city" class="form-label">Ville</label>
-                                    <select id="city" name="city" value="{{$building->city_id}}" class="dropdown btn-file form-select">
-                                            <option>Sélectionnez une ville</option>
+                                    <label for="city_id" class="form-label">Ville</label>
+                                    <select id="city" name="city_id" value="{{$building->city_id}}" class="dropdown form-select">
+                                            <option disabled selected hidden>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 @if ($city->id == $building->city_id)
-                                                    <option value={{$city['id']}} selected>{{$city['name']}}</option>
+                                                    <option value={{$city->id}} selected>{{$city->name}}</option>
+                                                @else 
+                                                    <option value={{$city->id}}>{{$city->name}}</option>
                                                 @endif
                                             @endforeach
                                       </select>

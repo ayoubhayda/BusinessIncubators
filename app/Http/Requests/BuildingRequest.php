@@ -18,6 +18,7 @@ class BuildingRequest extends FormRequest
             'name'=>['required','string'],
             'phone'=>'required',
             'city_id'=>'required',
+            'user_id'=>'required',
             'logo'=>'required|mimes:jpg,png,jped|max:548',
             'address'=>['required','string'],
         ];

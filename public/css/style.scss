@@ -60,6 +60,7 @@
         padding: 0%;
         .card-header{
             width: 100%;
+            background-color: $color-9;
         }
         .card-img{
             width: 100%;
@@ -78,7 +79,15 @@
             @extend %btn-1;
             width: 47%;
             &:hover {
-                @extend %btn-2
+                @extend %btn-2;
+            }
+        }
+
+        .btn-E {
+            @extend %btn-7;
+            width: 47%;
+            &:hover {
+                @extend %btn-8;
             }
         }
 
