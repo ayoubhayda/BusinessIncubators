@@ -26,7 +26,7 @@ class BuildingsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(BuildingRequest $request)
     {
         $request->validated();
         $slug = uniqid().Str::of($request->name)->slug('-').".".$request->logo->extension();
@@ -58,26 +58,10 @@ class BuildingsController extends Controller
      */
     public function update(BuildingRequest $request,Building $building)
     {
-        $request->validate([
-            'name'=>'required',
-            'phone'=>'required',
-            'city'=>'required',
-            'logo'=>'required|mimes:jpg,png,jped|max:548',
-            'address'=>'required',
-        ]);
-        $slug = Str::of($request->name)->slug('-');
-        $newImageName = uniqid().'-'.$slug.'.'.$request->logo->extension();
-        $request->logo->move(public_path('images'),$newImageName);
-
-        Building::where('id',$id)
-        ->update([
-            'name' => $request->input('name'), 
-            'address' => $request->input('address'),
-            'phone' => $request->input('phone'), 
-            'logo' => 'images/'.$newImageName, 
-            'city_id' => $request->input('city')
-        ]);
-
+        $request->validated();
+        $slug = uniqid().Str::of($request->name)->slug('-').".".$request->logo->extension();
+        $request->logo->move(public_path('images'), $slug);
+        $building->update($request->except(['logo']) + ['logo' => $slug]);
         return redirect()->route('buildings.index');
     }
     /**

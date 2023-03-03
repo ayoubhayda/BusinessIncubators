@@ -2,6 +2,22 @@
     box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
     width: 900px;
     color: $font-color-1;
+    tr
+    {
+        border:2px solid $color-2;
+        td, th{
+            border:2px solid $color-2;
+            border-top:none;
+            border-bottom:none;
+        }
+    }
+    tfoot tr td .btn-a {
+        width: 70%;
+        @extend %btn-1;
+        &:hover {
+            @extend %btn-2;
+        }
+    }
     .btn-u {
         width: 70%;
         @extend %btn-5;
@@ -21,4 +37,4 @@
         }    
     }
 
-}
+} 
