@@ -1,4 +1,5 @@
 <?php 
+use App\Http\Controllers\PositionsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\CitiesController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FloorsController;
 use App\Http\Controllers\OfficesController;
+use App\Http\Controllers\CompaniesController;
 
 
 
@@ -38,9 +40,10 @@ Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
     Route::resources([
         'floors' => FloorsController::class,
         'offices' => OfficesController::class,
-        //'companies' => CompaniesController::class,
-        //'employees' => EmployeesController::class,
-        //'complaints' => ComplaintsController::class,
+        'companies' => CompaniesController::class,
+        'employees' => EmployeesController::class,
+        'positions' => PositionsController::class,
+        'complaints' => ComplaintsController::class,
     ]);
 });
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('resolved');
             $table->text('note')->nullable();
 
-            $table->foreignId('building_id')->constrained();
+            $table->foreignId('building_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
             $table->softDeletes();

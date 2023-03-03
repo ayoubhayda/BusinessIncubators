@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_rented');
 
-            $table->foreignId('floor_id')->constrained();
+            $table->foreignId('floor_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
             $table->softDeletes();

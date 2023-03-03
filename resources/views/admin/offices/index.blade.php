@@ -75,7 +75,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3">
+                        <td colspan="4">
                             <div class="text-center">
                                 <a href="#addModal" class="link btn btn-a" data-bs-toggle="modal">Ajouter</a>
                             </div>
@@ -100,15 +100,20 @@
                                 <select id="floor" name="floor_id" class="dropdown form-select">
                                     <option selected disabled hidden>Sélectionnez un étage</option>
                                     @foreach ($floors as $floor)
-                                        <option value={{ $floor->id }}>{{ $floor->name }}</option>
+                                        <option value={{ $floor->id }}>{{ $floor->name}}</option>
                                     @endforeach
                                 </select>
-                                <div class="row">
+                                <div >
                                     <label for="is_rented" class="form-label">Disponible</label>
-                                    <span class="col"><input type="radio" name="is_rented" id="is_rented" value="1" >Oui</span> 
-                                    <span class="col"><input type="radio" name="is_rented" id="is_rented" value="0" >Non</span> 
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="is_rented" name="is_rented" value={{1}} checked>
+                                        <label class="form-check-label" for="is_rented">Oui</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="is_rented" name="is_rented" value={{0}}>
+                                        <label class="form-check-label" for="is_rented"> Non </label>
+                                    </div>
                                 </div>
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                     <input type="submit" class="link btn btn-a" value="Ajouter">

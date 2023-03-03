@@ -10,7 +10,7 @@
                 <div class="card col-4 mb-4">
                     <div class="card-header d-flex justify-content-center">
                         <div class="d-flex justify-content-center card-img">
-                            <img src={{ url($building['logo']) }} alt="">
+                            <img src={{ url('images/'.$building['logo']) }} alt="">
                         </div>
                     </div>
                     <div class="container-fluid">

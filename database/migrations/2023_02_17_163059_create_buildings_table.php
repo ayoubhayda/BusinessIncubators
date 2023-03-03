@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('logo');
 
-            $table->foreignId('city_id')->constrained();
+            $table->foreignId('city_id')->constrained()->onDelete('cascade')->onUpdate('cascade') ;
 
             $table->timestamps();
             $table->softDeletes();

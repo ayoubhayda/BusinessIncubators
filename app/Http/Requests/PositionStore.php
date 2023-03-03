@@ -3,10 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class BuildingStore extends FormRequest
+class PositionStore extends FormRequest
 {
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -15,11 +15,9 @@ class BuildingStore extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
-            'phone'=>'required',
-            'city_id'=>'required',
-            'logo'=>'required|mimes:jpg,png,jped|max:548',
-            'address'=>'required',
+            'name' => ['required','string',Rule::unique('positions')->where(function ($query) {
+                $query->whereNull('deleted_at');
+            })]
         ];
     }
 }
