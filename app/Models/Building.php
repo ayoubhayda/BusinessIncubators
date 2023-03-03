@@ -11,6 +11,7 @@ class Building extends Model
     use HasFactory;
     use SoftDeletes;
 
+
     protected $fillable = [
         'name', 'address','phone', 'logo', 'city_id'
     ];

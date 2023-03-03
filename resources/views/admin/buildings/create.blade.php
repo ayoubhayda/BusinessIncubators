@@ -31,15 +31,12 @@
                             <div class="row mb-3 mt-3">
                                 <div class="col">
                                     <label for="city" class="form-label">Ville</label>
-                                    <select id="city" name="city" class="dropdown form-select">
-                                        <option selected disabled hidden>Sélectionnez une ville</option>
-                                        @foreach ($cities as $city)
-                                            <option value={{ $city->id }}>{{ $city->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('city')
-                                        <span class="small text-danger">* {{ $message }}</span>
-                                    @enderror
+                                    <select id="city" name="city" class="dropdown btn-file form-select">
+                                            <option>Sélectionnez une ville</option>
+                                            @foreach ($cities as $city)
+                                                <option value={{$city['id']}}>{{$city['name']}}</option>
+                                            @endforeach
+                                      </select>
                                 </div>
                                 <div class="col">
                                     <label for="logo" class="form-label">Logo</label>

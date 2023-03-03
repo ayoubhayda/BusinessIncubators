@@ -4,7 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class CheckRole
 {
@@ -22,6 +23,9 @@ class CheckRole
             }
         }
 
-        abort(403, 'Unauthorized action.');
-    }
+    abort(403, 'Unauthorized action.');
+    return redirect()->route('login');
+    
+}
+
 }

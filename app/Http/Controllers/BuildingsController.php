@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\BuildingStore;
-use App\Http\Requests\BuildingUpdate;
+use App\Http\Requests\BuildingRequest;
 use Illuminate\Support\Str;
 use App\Models\Building;
 use App\Models\City;
@@ -27,13 +26,12 @@ class BuildingsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BuildingStore $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validated();
-        $slug = Str::of($request->name)->slug('-');
-        $imageName =uniqid().$slug.'.'.$request->logo->extension();
-        $request->logo->move(public_path('images'), $imageName);
-        Building::create($request->only(['name', 'phone', 'city_id', 'address']) + ['logo' => 'images/'.$imageName]);
+        $slug = uniqid().Str::of($request->name)->slug('-').".".$request->logo->extension();
+        Building::create($request->except(['logo']) + ['logo' => $slug]);
+        $request->logo->move(public_path('images'), $slug);
         return redirect()->route('buildings.index');
     }
 
@@ -58,12 +56,28 @@ class BuildingsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BuildingUpdate $request,Building $building)
+    public function update(BuildingRequest $request,Building $building)
     {
-        $request->validated();
-        $slug = uniqid().Str::of($request->name)->slug('-').'.'.$request->logo->extension();
-        $request->logo->move(public_path('images'), $slug);
-        $building->update($request->except(['logo']) + ['logo' => $slug]);
+        $request->validate([
+            'name'=>'required',
+            'phone'=>'required',
+            'city'=>'required',
+            'logo'=>'required|mimes:jpg,png,jped|max:548',
+            'address'=>'required',
+        ]);
+        $slug = Str::of($request->name)->slug('-');
+        $newImageName = uniqid().'-'.$slug.'.'.$request->logo->extension();
+        $request->logo->move(public_path('images'),$newImageName);
+
+        Building::where('id',$id)
+        ->update([
+            'name' => $request->input('name'), 
+            'address' => $request->input('address'),
+            'phone' => $request->input('phone'), 
+            'logo' => 'images/'.$newImageName, 
+            'city_id' => $request->input('city')
+        ]);
+
         return redirect()->route('buildings.index');
     }
     /**

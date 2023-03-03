@@ -4,26 +4,17 @@ use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\DomainsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\FloorsController;
-use App\Http\Controllers\OfficesController;
 
 
 
 
-// ----------------------super admin routes ----------------------------
-// These routes are only accessible by users with the 'super admin' role (role ID = 1)
-Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
-    // Destroy a specific building
-    Route::delete('buildings/{building}/destroy', [BuildingsController::class, 'destroy'])->name('buildings.destroy');
-    // Create a new building
-    Route::get('buildings/create', [BuildingsController::class, 'create'])->name('buildings.create');
-    Route::post('buildings/store', [BuildingsController::class, 'store'])->name('buildings.store');
-    // Manage cities and domains
+//----------------------super admin routes ----------------------------
+
+Route::prefix('admin')->middleware(['auth','role:1'])->group(function (){
     Route::resources([
-        'cities' => CitiesController::class,
-        'domains' => DomainsController::class,
-        'users' => UsersController::class,
+        'buildings'=> BuildingsController::class,
+        'cities'=> CitiesController::class,
+        'domains'=> DomainsController::class,
     ]);
 });
 
@@ -57,6 +48,7 @@ Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
 // These routes are accessible to everyone
 Route::get('/', [HomeController::class, 'index']);
 
-// ----------------------auth routes ----------------------------
-// These routes handle user authentication
-Auth::routes(); 
+Auth::routes();
+
+
+
