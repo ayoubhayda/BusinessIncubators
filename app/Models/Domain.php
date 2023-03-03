@@ -29,10 +29,10 @@ class Domain extends Model
             ->saveSlugsTo('slug');
     }
 
-/*     public function companies()
+    public function companies()
     {
         return $this->hasMany(Company::class);
     }
- */
+
 
 }

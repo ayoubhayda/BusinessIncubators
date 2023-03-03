@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\OfficeStore;
-use App\Http\Requests\OfficeUpdate;
+use App\Http\Requests\OfficeRequest;
 use App\Models\Office;
 use App\Models\Floor;
 
@@ -27,7 +26,7 @@ class OfficesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(OfficeStore $request)
+    public function store(OfficeRequest $request)
     {
         $request->validated();
         Office::create($request->all());
@@ -48,14 +47,14 @@ class OfficesController extends Controller
     public function edit(Office $office) 
     {
         return view('admin.offices.index')
-        ->with('office', Office::findOrFail($office))
+        ->with('office', $office)
         ->with('floors', Floor::all());
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(OfficeUpdate $request,Office $office)
+    public function update(OfficeRequest $request,Office $office)
     {
         $request->validated();
         $office->update($request->all());

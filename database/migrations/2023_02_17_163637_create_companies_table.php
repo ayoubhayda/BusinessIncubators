@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('video')->nullable();
             $table->boolean('visibility');
 
-            $table->foreignId('office_id')->constrained();
+            $table->foreignId('office_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
             $table->softDeletes();

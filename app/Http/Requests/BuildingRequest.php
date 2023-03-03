@@ -20,7 +20,7 @@ class BuildingRequest extends FormRequest
             'city_id'=>'required',
             'user_id'=>'required',
             'logo'=>'required|mimes:jpg,png,jped|max:548',
-            'address'=>['required','string'],
+            'address'=>['required','string', 'max:600'],
         ];
     }
 }

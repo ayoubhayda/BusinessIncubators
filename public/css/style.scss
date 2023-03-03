@@ -157,7 +157,10 @@
 {
     @extend %body-table; 
 }
-
+.positionsTable
+{
+    @extend %body-table; 
+}
 .modal{
     color: $font-color-1;
     font-size: 15px;

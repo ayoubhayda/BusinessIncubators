@@ -22,6 +22,11 @@ class Office extends Model
     {
         return $this->belongsTo(Floor::class);
     }
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
 
 
 }

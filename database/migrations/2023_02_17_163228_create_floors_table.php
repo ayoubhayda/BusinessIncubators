@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('order');
 
-            $table->foreignId('building_id')->constrained();
+            $table->foreignId('building_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
             $table->softDeletes();

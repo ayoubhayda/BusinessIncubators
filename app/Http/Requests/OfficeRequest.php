@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BuildingUpdate extends FormRequest
+class OfficeRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,11 +14,9 @@ class BuildingUpdate extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
-            'phone'=>'required',
-            'city_id'=>'required',
-            'logo'=>'required|mimes:jpg,png,jped|max:548',
-            'address'=>'required',
+            'name' => ['required','string'] ,
+            'is_rented'=> ['required','integer'] ,
+            'floor_id'=> 'required'
         ];
     }
 }

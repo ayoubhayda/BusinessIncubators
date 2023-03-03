@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('speciality');
             $table->string('biography')->nullable();
 
-            $table->foreignId('company_id')->constrained();
-            $table->foreignId('position_id')->constrained();
+            $table->foreignId('company_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('position_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
             $table->softDeletes();

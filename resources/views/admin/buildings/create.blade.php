@@ -39,9 +39,9 @@
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
-                                    <label for="city_id" class="form-label">Ville</label>
-                                    <select id="city_id" name="city_id" class="dropdown form-select">
-                                            <option disabled selected hidden>Sélectionnez une ville</option>
+                                    <label for="city" class="form-label">Ville</label>
+                                    <select id="city" name="city" class="dropdown btn-file form-select">
+                                            <option>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 <option value={{$city->id}}>{{$city->name}}</option>
                                             @endforeach

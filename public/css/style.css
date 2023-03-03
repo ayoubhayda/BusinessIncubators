@@ -16,52 +16,40 @@ a, .btn {
   transition: 0.4s;
 }
 
-.form-immeuble .card form .btn-file, .form-immeuble .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
+.form-immeuble .card form .btn-file, .form-immeuble .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
   background-color: #00adbb;
   border: none;
   color: #ffffff;
 }
 
-.form-immeuble .card form .btn-file:hover, .form-immeuble .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .officesTable tfoot tr td .btn-a:hover, .floorsTable tfoot tr td .btn-a:hover, .usersTable tfoot tr td .btn-a:hover, .domainsTable tfoot tr td .btn-a:hover, .citiesTable tfoot tr td .btn-a:hover {
+.form-immeuble .card form .btn-file:hover, .form-immeuble .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .positionsTable tfoot tr td .btn-a:hover, .officesTable tfoot tr td .btn-a:hover, .floorsTable tfoot tr td .btn-a:hover, .usersTable tfoot tr td .btn-a:hover, .domainsTable tfoot tr td .btn-a:hover, .citiesTable tfoot tr td .btn-a:hover {
   background-color: #ffffff;
   border: 1px solid #00adbb;
   color: #00adbb;
 }
 
-.modal .btn-d, .content .btn-S, .officesTable form .btn-d, .floorsTable form .btn-d, .usersTable form .btn-d, .domainsTable form .btn-d, .citiesTable form .btn-d {
+.modal .btn-d, .content .btn-S, .positionsTable form .btn-d, .officesTable form .btn-d, .floorsTable form .btn-d, .usersTable form .btn-d, .domainsTable form .btn-d, .citiesTable form .btn-d {
   background-color: #f14a4a;
   border: none;
   color: #ffffff;
 }
 
-.modal .btn-d:hover, .content .btn-S:hover, .officesTable form .btn-d:hover, .floorsTable form .btn-d:hover, .usersTable form .btn-d:hover, .domainsTable form .btn-d:hover, .citiesTable form .btn-d:hover {
+.modal .btn-d:hover, .content .btn-S:hover, .positionsTable form .btn-d:hover, .officesTable form .btn-d:hover, .floorsTable form .btn-d:hover, .usersTable form .btn-d:hover, .domainsTable form .btn-d:hover, .citiesTable form .btn-d:hover {
   background-color: #ffffff;
   border: 1px solid #f14a4a;
   color: #f14a4a;
 }
 
-.officesTable .btn-u, .floorsTable .btn-u, .usersTable .btn-u, .domainsTable .btn-u, .citiesTable .btn-u {
+.positionsTable .btn-u, .officesTable .btn-u, .floorsTable .btn-u, .usersTable .btn-u, .domainsTable .btn-u, .citiesTable .btn-u {
   background-color: #007ee5;
   border: none;
   color: #ffffff;
 }
 
-.officesTable .btn-u:hover, .floorsTable .btn-u:hover, .usersTable .btn-u:hover, .domainsTable .btn-u:hover, .citiesTable .btn-u:hover {
+.positionsTable .btn-u:hover, .officesTable .btn-u:hover, .floorsTable .btn-u:hover, .usersTable .btn-u:hover, .domainsTable .btn-u:hover, .citiesTable .btn-u:hover {
   background-color: #ffffff;
   border: 1px solid #007ee5;
   color: #007ee5;
-}
-
-.content .btn-E {
-  background-color: #001c33;
-  border: none;
-  color: #ffffff;
-}
-
-.content .btn-E:hover {
-  background-color: #ffffff;
-  border: 1px solid #001c33;
-  color: #001c33;
 }
 
 .officesTable, .floorsTable, .usersTable, .domainsTable, .citiesTable {
@@ -69,24 +57,24 @@ a, .btn {
   width: 900px;
   color: #182c4b;
 }
-.officesTable tr, .floorsTable tr, .usersTable tr, .domainsTable tr, .citiesTable tr {
+.positionsTable tr, .officesTable tr, .floorsTable tr, .usersTable tr, .domainsTable tr, .citiesTable tr {
   border: 2px solid #00adbb;
 }
-.officesTable tr td, .floorsTable tr td, .usersTable tr td, .domainsTable tr td, .citiesTable tr td, .officesTable tr th, .floorsTable tr th, .usersTable tr th, .domainsTable tr th, .citiesTable tr th {
+.positionsTable tr td, .officesTable tr td, .floorsTable tr td, .usersTable tr td, .domainsTable tr td, .citiesTable tr td, .positionsTable tr th, .officesTable tr th, .floorsTable tr th, .usersTable tr th, .domainsTable tr th, .citiesTable tr th {
   border: 2px solid #00adbb;
   border-top: none;
   border-bottom: none;
 }
-.officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
+.positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
   width: 70%;
 }
-.officesTable .btn-u, .floorsTable .btn-u, .usersTable .btn-u, .domainsTable .btn-u, .citiesTable .btn-u {
+.positionsTable .btn-u, .officesTable .btn-u, .floorsTable .btn-u, .usersTable .btn-u, .domainsTable .btn-u, .citiesTable .btn-u {
   width: 70%;
 }
-.officesTable form, .floorsTable form, .usersTable form, .domainsTable form, .citiesTable form {
+.positionsTable form, .officesTable form, .floorsTable form, .usersTable form, .domainsTable form, .citiesTable form {
   width: 100%;
 }
-.officesTable form .btn-d, .floorsTable form .btn-d, .usersTable form .btn-d, .domainsTable form .btn-d, .citiesTable form .btn-d {
+.positionsTable form .btn-d, .officesTable form .btn-d, .floorsTable form .btn-d, .usersTable form .btn-d, .domainsTable form .btn-d, .citiesTable form .btn-d {
   width: 70%;
 }
 .navbar {
