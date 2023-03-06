@@ -1,7 +1,7 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 @section('title','Utilisateurs')
 @section('content')
-    <div class="conatiner-fluid d-flex justify-content-center">
+    <div class="conatainer-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">
             <table class="table text-center usersTable">
                 <thead>
@@ -96,7 +96,3 @@
         </div>
     </div>
 @endsection
-{{-- @section('scripts')
-    <script src="{{url('javascript/users.js')}}"></script>
-@endsection
- --}}

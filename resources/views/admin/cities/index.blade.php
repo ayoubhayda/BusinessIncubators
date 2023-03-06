@@ -1,10 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 @section('title','Villes')
 @section('styles')
 {{--    styles for this page--}}
 @endsection
 @section('content')
-    <div class="conatiner-fluid d-flex justify-content-center">
+    <div class="conatiner-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">
             <table class="table text-center citiesTable">
                 <thead>
@@ -89,7 +89,3 @@
         </div>
     </div>
 @endsection
-{{-- @section('scripts')
-    <script src="{{url('javascript/cities.js')}}"></script>
-@endsection
- --}}

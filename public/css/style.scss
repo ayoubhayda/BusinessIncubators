@@ -61,10 +61,15 @@
         .card-header{
             width: 100%;
             background-color: $color-9;
+            height: 60px;
         }
         .card-img{
-            width: 100%;
-            height: 40px;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 0%;
+            background-color: $color-9;
+            padding: 2px;
         }
         .card-title {
             color: $color-2;
@@ -72,6 +77,12 @@
             font-weight: bolder;
             font-size: xx-large;
             margin: 10px 0;
+        }
+        .card-body{
+            margin-top: 40px;
+            .card-text{
+                margin-bottom: 30px;
+            }
         }
     }
 
@@ -185,7 +196,7 @@
 
 //--form immeuble
 
-.form-immeuble{
+.form-body{
     .card{
         box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
         border-radius: 7px;
@@ -225,16 +236,53 @@
                     @extend %btn-2;
                 }
             }
-        
-            #upload {
+         
+            #upload_logo, #upload_video, #upload_image {
                 opacity: 0;
             }
             
-            #upload-label {
+            #upload-label_logo, #upload-label_video, #upload-label_image{ 
                 position: absolute;
                 top: 50%;
                 left: 1rem;
                 transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.show_company{
+    .cards{
+        .card-title {
+            color: $color-2;
+            text-transform: uppercase;
+            font-weight: bolder;
+            font-size: xx-large;
+            margin: 10px 0;
+        }
+        .btn-M {
+            color: $color-1;
+            background-color: $color-2;
+            &:hover{
+                background-color: $color-10;
+            }
+        }
+        .btn-E {
+            @extend %btn-7;
+            &:hover{
+                @extend %btn-8;
+            }
+        }
+        .btn-U {
+            @extend %btn-1;
+            &:hover{
+                @extend %btn-2;
+            }
+        }
+        .btn-S {
+            @extend %btn-3;
+            &:hover{
+                @extend %btn-4;
             }
         }
     }

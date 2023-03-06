@@ -15,8 +15,7 @@ class OfficeRequest extends FormRequest
     {
         return [
             'name' => ['required','string'] ,
-            'is_rented'=> ['required','integer'] ,
-            'floor_id'=> 'required'
+            'is_rented'=> ['required','integer']
         ];
     }
 }

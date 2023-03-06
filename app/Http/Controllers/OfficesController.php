@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\OfficeRequest;
-use App\Models\Office;
+use App\Models\Building;
 use App\Models\Floor;
+use App\Models\Office;
 
 class OfficesController extends Controller
 {
-    public function index()
+    public function index(Building $building, Floor $floor, Office $office)
     {
         return view('admin.offices.index')
-        ->with('offices', Office::all())
-        ->with('floors', Floor::all());
+        ->with('floor', $floor)
+        ->with('offices', $floor->offices);
     }
 
     /**
@@ -19,24 +20,23 @@ class OfficesController extends Controller
      */
     public function create()
     {
-        return view('admin.offices.index')
-        ->with('floors', Floor::all());
+        //    
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(OfficeRequest $request)
+    public function store(OfficeRequest $request,Building $building,Floor $floor)
     {
         $request->validated();
-        Office::create($request->all());
-        return redirect()->route('offices.index');
+        Office::create($request->all() + ['floor_id'=> $floor->id ]);
+        return redirect()->route('offices.index', ['building'=> $building->id ,'floor' => $floor->id]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $office) 
+    public function show(Floor $floor,Office $office) 
     {
         //
     }
@@ -44,29 +44,27 @@ class OfficesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Office $office) 
+    public function edit(Building $building,Office $office,Floor $floor) 
     {
         return view('admin.offices.index')
-        ->with('office', $office)
-        ->with('floors', Floor::all());
+        ->with('offices', $floor->offices);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(OfficeRequest $request,Office $office)
+    public function update(OfficeRequest $request,Building $building,Floor $floor,Office $office)
     {
         $request->validated();
-        $office->update($request->all());
-        return redirect()->route('offices.index');
+        $office->update($request->all() + ['floor_id'=> $floor->id ]);
+        return redirect()->route('offices.index', ['building' => $building->id ,'floor' => $floor->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Office $office)
+    public function destroy( Building $building,Floor $floor,Office $office)
     {
         $office->delete();
-        return redirect()->route('offices.index');
-    }
+        return redirect()->route('offices.index', ['building'=> $building->id ,'floor' => $floor->id]); }
 }

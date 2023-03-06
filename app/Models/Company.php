@@ -48,9 +48,13 @@ class Company extends Model
     public function office(){
         return $this->belongsTo(Office::class);
     }
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
+
     public function domains()
     {
         return $this->belongsToMany(Domain::class);
     }
-
 }

@@ -1,6 +1,6 @@
 %body-table{
     box-shadow: 0 4px 8px 0 $shadow-color-card, 0 6px 20px 0 $shadow-color-card;
-    width: 900px;
+    width: 990px;
     color: $font-color-1;
     tr
     {
@@ -12,29 +12,32 @@
         }
     }
     tfoot tr td .btn-a {
-        width: 70%;
+        width: 80%;
         @extend %btn-1;
         &:hover {
             @extend %btn-2;
         }
     }
+    .btn-m {
+ 
+        @extend %btn-7;
+        &:hover {
+            @extend %btn-8;
+        }
+    }
+    .btn-d {
+
+        @extend %btn-3;
+        &:hover {
+            @extend %btn-4;
+        }
+    }
+    
     .btn-u {
-        width: 70%;
         @extend %btn-5;
         &:hover {
             @extend %btn-6;
         }
-    }
-    form
-    {
-        width: 100%;
-        .btn-d {
-            width: 70%;
-            @extend %btn-3;
-            &:hover {
-                @extend %btn-4;
-            }
-        }    
     }
 
 } 

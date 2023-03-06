@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class FloorRequest extends FormRequest
+class FloorUpdate extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -13,10 +14,13 @@ class FloorRequest extends FormRequest
      */
     public function rules(): array
     {
+        $building_id = $this->route('building')->id;
+
         return [
-            'name' => ['required','string'] ,
-            'order'=> ['required','integer'] ,
-            'building_id'=> 'required'
-        ];
+            'name' => ['required', 'string'],
+            'order' => [
+                'required', 'integer'
+            ],
+        ];    
     }
 }

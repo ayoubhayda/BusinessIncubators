@@ -6,17 +6,18 @@ use Illuminate\Support\Str;
 use App\Models\Building;
 use App\Models\City;
 use App\Models\User;
+use App\Models\Floor;
 use Auth;
 
 class BuildingsController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $buildings = $user->role == 1? Building::all():$user->buildings;
+        $admin = Auth::user();
+        $buildings = $admin->role == 1? Building::all():$admin->buildings;
         return view('admin.buildings.index')
         ->with('buildings', $buildings)
-        ->with('user', $user);
+        ->with('admin', $admin);
         
     }
 
@@ -46,7 +47,7 @@ class BuildingsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $building) 
+    public function show($building) 
     {
         //
     }
@@ -56,10 +57,12 @@ class BuildingsController extends Controller
      */
     public function edit(Building $building) 
     {
+        $admin = Auth::user();
         return view('admin.buildings.edit')
         ->with('building', $building)
         ->with('cities', City::all())
-        ->with('users', User::where('role', 0)->get());
+        ->with('users', User::where('role', 0)->get())
+        ->with('admin', $admin);
     }
 
     /**

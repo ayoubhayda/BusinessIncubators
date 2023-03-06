@@ -9,6 +9,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FloorsController;
 use App\Http\Controllers\OfficesController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\EmployeesController;
 
 
 
@@ -36,15 +37,27 @@ Route::prefix('admin')->middleware(['auth', 'role:1,0'])->group(function () {
 // These routes are only accessible by users with the 'normal admin' role (role ID = 0)
 
 Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
-    // Manage floors
-    Route::resources([
-        'floors' => FloorsController::class,
-        'offices' => OfficesController::class,
-        'companies' => CompaniesController::class,
-        'employees' => EmployeesController::class,
-        'positions' => PositionsController::class,
-        'complaints' => ComplaintsController::class,
-    ]);
+
+    Route::prefix('buildings/{building}')->group(function () {
+
+        Route::resources(['floors' => FloorsController::class]);
+
+        Route::prefix('floors/{floor}')->group(function () {
+
+            Route::resources(['offices' => OfficesController::class]);
+
+            Route::prefix('offices/{office}')->group(function () {
+
+                Route::resources(['companies' => CompaniesController::class]);
+
+                Route::prefix('companies/{company}')->group(function () {
+
+                    Route::resources(['employees' => EmployeesController::class]);
+
+                })->middleware('can:view,company');
+            })->middleware('can:view,office');
+        })->middleware('can:view,floor');
+    })->middleware('can:view,building');
 });
 
 
@@ -55,4 +68,3 @@ Route::get('/', [HomeController::class, 'index']);
 // ----------------------auth routes ----------------------------
 // These routes handle user authentication
 Auth::routes(); 
-

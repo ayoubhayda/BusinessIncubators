@@ -1,45 +1,44 @@
-@if ($user->role == 1)
-    @extends('layouts.superadmin')
-    @section('title', 'Immeubles')
+@extends('layouts.admin')
+@section('title', 'Immeubles')
 @section('content')
-@endif
 
-    @if ($user->role == 1)
+    @if ($admin->role == 1)
         <div class="add mt-4 mb-3 d-flex justify-content-center align-items-center">
             <a href={{ route('buildings.create') }} class="material-symbols-outlined">Add</a>
         </div>
     @endif
     <div class="content mt-4 d-flex justify-content-center">
-        <div class="container-fluid row d-flex justify-content-between">
+        <div class="container-fluid row d-flex justify-content-between mt-4">
             @foreach ($buildings as $building)
                 <div class="card col-4 mb-4">
-                    <div class="card-header d-flex justify-content-center">
-                        <div class="d-flex justify-content-center card-img">
-                            <img src={{ url($building['logo']) }} alt="">
+                    <div class="card-header"></div>
+                    <div class="cintainer d-flex justify-content-center">
+                        <div class="card-img rounded-circle mt-2 d-flex justify-content-center alighn-items-center">
+                            <img src={{ url('images/'.$building->logo) }} class="img-fluid card-logo" style= "border-radius: 50%; "/>
                         </div>
                     </div>
-                    <div class="container-fluid">
-                        <div class="card-body">
-                            <h3 class="card-title text-center mb-3">{{ $building->name }}</h3>
-                            <div class="card-text">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td>Ville</td>
-                                        <td>{{ $building->city->name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Adresse</td>
-                                        <td>{{ $building->address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tele</td>
-                                        <td>{{ $building->phone }}</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="row d-flex justify-content-between mt-4 mb-2">
+                    <div class="card-body ">
+                        <h4 class="mb-3 card-title text-center">{{ $building->name }}</h4>
+                        <div class="card-text">
+                            <table class="table table-bordered ">
+                                <tr>
+                                    <td>Ville</td>
+                                    <td>{{ $building->city->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Adresse</td>
+                                    <td>{{ $building->address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tele</td>
+                                    <td>{{ $building->phone }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row d-flex justify-content-between mt-3 mb-2">
                                 <a href="{{ route('buildings.edit', $building->id) }}" class="btn btn-M col-5">Modifier</a>
-                                @if ($user->role == 1)
+                                @if ($admin->role == 1)
                                     <button type="button" class="btn btn-S col-5" data-bs-toggle="modal"
                                         data-bs-target="#myModal">Supprimer</button>
                                     <form id="delete" action="{{ route('buildings.destroy', $building->id) }}"
@@ -65,14 +64,13 @@
                                         </div>
                                     </div>
                                 @else
-                                    <a href="#" class="btn btn-E col-5">Etages</a>
+                                    <a href={{route('floors.index', ['building' => $building->id])}} class="btn btn-E col-5">Étages</a>
                                 @endif
-                            </div>
+                            </div>    
                         </div>
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
 @endsection

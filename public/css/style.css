@@ -16,25 +16,25 @@ a, .btn {
   transition: 0.4s;
 }
 
-.form-immeuble .card form .btn-file, .form-immeuble .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
+.show_company .cards .btn-U, .form-body .card form .btn-file, .form-body .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
   background-color: #00adbb;
   border: none;
   color: #ffffff;
 }
 
-.form-immeuble .card form .btn-file:hover, .form-immeuble .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .positionsTable tfoot tr td .btn-a:hover, .officesTable tfoot tr td .btn-a:hover, .floorsTable tfoot tr td .btn-a:hover, .usersTable tfoot tr td .btn-a:hover, .domainsTable tfoot tr td .btn-a:hover, .citiesTable tfoot tr td .btn-a:hover {
+.show_company .cards .btn-U:hover, .form-body .card form .btn-file:hover, .form-body .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .positionsTable tfoot tr td .btn-a:hover, .officesTable tfoot tr td .btn-a:hover, .floorsTable tfoot tr td .btn-a:hover, .usersTable tfoot tr td .btn-a:hover, .domainsTable tfoot tr td .btn-a:hover, .citiesTable tfoot tr td .btn-a:hover {
   background-color: #ffffff;
   border: 1px solid #00adbb;
   color: #00adbb;
 }
 
-.modal .btn-d, .content .btn-S, .positionsTable form .btn-d, .officesTable form .btn-d, .floorsTable form .btn-d, .usersTable form .btn-d, .domainsTable form .btn-d, .citiesTable form .btn-d {
+.show_company .cards .btn-S, .modal .btn-d, .content .btn-S, .positionsTable .btn-d, .officesTable .btn-d, .floorsTable .btn-d, .usersTable .btn-d, .domainsTable .btn-d, .citiesTable .btn-d {
   background-color: #f14a4a;
   border: none;
   color: #ffffff;
 }
 
-.modal .btn-d:hover, .content .btn-S:hover, .positionsTable form .btn-d:hover, .officesTable form .btn-d:hover, .floorsTable form .btn-d:hover, .usersTable form .btn-d:hover, .domainsTable form .btn-d:hover, .citiesTable form .btn-d:hover {
+.show_company .cards .btn-S:hover, .modal .btn-d:hover, .content .btn-S:hover, .positionsTable .btn-d:hover, .officesTable .btn-d:hover, .floorsTable .btn-d:hover, .usersTable .btn-d:hover, .domainsTable .btn-d:hover, .citiesTable .btn-d:hover {
   background-color: #ffffff;
   border: 1px solid #f14a4a;
   color: #f14a4a;
@@ -52,9 +52,21 @@ a, .btn {
   color: #007ee5;
 }
 
-.officesTable, .floorsTable, .usersTable, .domainsTable, .citiesTable {
+.show_company .cards .btn-E, .content .btn-E, .positionsTable .btn-m, .officesTable .btn-m, .floorsTable .btn-m, .usersTable .btn-m, .domainsTable .btn-m, .citiesTable .btn-m {
+  background-color: #001c33;
+  border: none;
+  color: #ffffff;
+}
+
+.show_company .cards .btn-E:hover, .content .btn-E:hover, .positionsTable .btn-m:hover, .officesTable .btn-m:hover, .floorsTable .btn-m:hover, .usersTable .btn-m:hover, .domainsTable .btn-m:hover, .citiesTable .btn-m:hover {
+  background-color: #ffffff;
+  border: 1px solid #001c33;
+  color: #001c33;
+}
+
+.positionsTable, .officesTable, .floorsTable, .usersTable, .domainsTable, .citiesTable {
   box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
-  width: 900px;
+  width: 990px;
   color: #182c4b;
 }
 .positionsTable tr, .officesTable tr, .floorsTable tr, .usersTable tr, .domainsTable tr, .citiesTable tr {
@@ -66,16 +78,7 @@ a, .btn {
   border-bottom: none;
 }
 .positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
-  width: 70%;
-}
-.positionsTable .btn-u, .officesTable .btn-u, .floorsTable .btn-u, .usersTable .btn-u, .domainsTable .btn-u, .citiesTable .btn-u {
-  width: 70%;
-}
-.positionsTable form, .officesTable form, .floorsTable form, .usersTable form, .domainsTable form, .citiesTable form {
-  width: 100%;
-}
-.positionsTable form .btn-d, .officesTable form .btn-d, .floorsTable form .btn-d, .usersTable form .btn-d, .domainsTable form .btn-d, .citiesTable form .btn-d {
-  width: 70%;
+  width: 80%;
 }
 .navbar {
   background-color: #ffffff;
@@ -111,10 +114,15 @@ a, .btn {
 .content .card .card-header {
   width: 100%;
   background-color: #014f54;
+  height: 60px;
 }
 .content .card .card-img {
-  width: 100%;
-  height: 40px;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0%;
+  background-color: #014f54;
+  padding: 2px;
 }
 .content .card .card-title {
   color: #00adbb;
@@ -122,6 +130,12 @@ a, .btn {
   font-weight: bolder;
   font-size: xx-large;
   margin: 10px 0;
+}
+.content .card .card-body {
+  margin-top: 40px;
+}
+.content .card .card-body .card-text {
+  margin-bottom: 30px;
 }
 .content .btn-M {
   width: 47%;
@@ -172,11 +186,11 @@ a, .btn {
   font-weight: 600;
 }
 
-.form-immeuble .card {
+.form-body .card {
   box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
   border-radius: 7px;
 }
-.form-immeuble .card .card-header {
+.form-body .card .card-header {
   background-color: #00adbb;
   color: #ffffff;
   padding: 10px;
@@ -185,29 +199,44 @@ a, .btn {
   font-weight: bolder;
   text-align: center;
 }
-.form-immeuble .card form {
+.form-body .card form {
   color: #182c4b;
   padding: 10px;
 }
-.form-immeuble .card form .dropdown {
+.form-body .card form .dropdown {
   scroll-behavior: smooth;
   transition: 500ms;
 }
-.form-immeuble .card form .dropdown option {
+.form-body .card form .dropdown option {
   background-color: #ffffff;
   color: #182c4b;
 }
-.form-immeuble .card form .btn-submit {
+.form-body .card form .btn-submit {
   width: 100%;
   text-transform: uppercase;
   font-size: large;
 }
-.form-immeuble .card form #upload {
+.form-body .card form #upload_logo, .form-body .card form #upload_video, .form-body .card form #upload_image {
   opacity: 0;
 }
-.form-immeuble .card form #upload-label {
+.form-body .card form #upload-label_logo, .form-body .card form #upload-label_video, .form-body .card form #upload-label_image {
   position: absolute;
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
+}
+
+.show_company .cards .card-title {
+  color: #00adbb;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: xx-large;
+  margin: 10px 0;
+}
+.show_company .cards .btn-M {
+  color: #ffffff;
+  background-color: #00adbb;
+}
+.show_company .cards .btn-M:hover {
+  background-color: #018791;
 }/*# sourceMappingURL=style.css.map */

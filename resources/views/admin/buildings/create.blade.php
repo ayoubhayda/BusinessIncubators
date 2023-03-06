@@ -1,8 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 @section('title', 'Ajouter un immeuble')
 @section('content')
     <div class=" container mt-4">
-        <div class="form-immeuble row justify-content-center">
+        <div class="form-body row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
@@ -43,7 +43,7 @@
                             <div class="row mb-3 mt-3">
                                 <div class="col">
                                     <label for="city_id" class="form-label">Ville</label>
-                                    <select id="city_id" name="city_id" class="dropdown btn-file form-select">
+                                    <select id="city_id" name="city_id" class="dropdown form-select">
                                             <option>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 <option value={{$city->id}}>{{$city->name}}</option>
@@ -56,12 +56,12 @@
                                 <div class="col">
                                     <label for="logo" class="form-label">Logo</label>
                                     <div class="input-group form-control p-0">
-                                        <input id="upload" type="file" onchange="readURL(this)" name="logo"
+                                        <input id="upload_logo" type="file" onchange="readURL(this)" name="logo"
                                             class="form-control border-0">
-                                        <label id="upload-label" for="upload"
+                                        <label id="upload-label_logo" for="upload_logo"
                                             class="font-weight-light text-muted ">Choisir le fichier</label>
                                         <div class="input-group-append">
-                                            <label for="upload" class="btn btn-file">Parcourir</label>
+                                            <label for="upload_logo" class="btn btn-file">Parcourir</label>
                                         </div>
                                     </div>
                                     @error('logo')
