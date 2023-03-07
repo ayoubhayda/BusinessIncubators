@@ -20,4 +20,18 @@ class CityStore extends FormRequest
             })]
         ];
     }
+    
+     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'name.unique' => "Le nom de la ville doit être unique.",
+        ];
+    }
+
+
 }

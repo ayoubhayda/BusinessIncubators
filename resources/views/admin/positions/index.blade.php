@@ -6,7 +6,7 @@
 @section('content')
     <div class="conatiner-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">
-            <table class="table text-center positionsTable">
+            <table class="table text-center bodyTable">
                 <thead>
                     <tr>
                         <th >Nom</th>

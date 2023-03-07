@@ -148,51 +148,32 @@
 }
 
 //--table
-.citiesTable
-{
-    @extend %body-table;
-}
-.domainsTable
-{
-    @extend %body-table;
-}
-.usersTable
-{
-    @extend %body-table;
-}
-.floorsTable
-{
-    @extend %body-table;
-}
-.officesTable
-{
-    @extend %body-table; 
-}
-.positionsTable
+.bodyTable
 {
     @extend %body-table; 
 }
 .modal{
-    color: $font-color-1;
+    color: $font-color-1; 
     font-size: 15px;
     font-weight: 500;
     .label{
         font-size: 20px;
         font-weight: 600;    
     }
-}
-.modal .btn-a {
-    @extend %btn-1;
-    &:hover {
-        @extend %btn-2;
+    .btn-a {
+        @extend %btn-1;
+        &:hover {
+            @extend %btn-2;
+        }
+    }
+    .btn-d {
+        @extend %btn-3;
+        &:hover {
+            @extend %btn-4;
+        }
     }
 }
-.modal .btn-d {
-    @extend %btn-3;
-    &:hover {
-        @extend %btn-4;
-    }
-}
+
 
 //--form immeuble
 

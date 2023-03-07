@@ -14,13 +14,30 @@ class FloorUpdate extends FormRequest
      */
     public function rules(): array
     {
-        $building_id = $this->route('building')->id;
 
         return [
             'name' => ['required', 'string'],
             'order' => [
-                'required', 'integer'
+                'required',
+                'integer',
+                Rule::unique('floors')->where(function ($query){
+                    return $query->where('building_id', $this->route('building')->id);
+                })->ignore($this->route('floor')->id)
             ],
-        ];    
+        ];
     }
+    
+     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'order.unique' => "Le numéro d'étage doit être unique.",
+        ];
+    }
+    
+
 }

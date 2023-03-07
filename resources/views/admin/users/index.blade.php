@@ -3,7 +3,7 @@
 @section('content')
     <div class="conatainer-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">
-            <table class="table text-center usersTable">
+            <table class="table text-center bodyTable">
                 <thead>
                     <tr>
                         <th >Nom</th>
@@ -41,11 +41,14 @@
                                         @csrf
                                         @method('PUT')
                                             <label for="name" class="form-label">Nom</label>
-                                            <input type="text" class="form-control" id="name" name ="name" value="{{$user->name}}" required>
+                                            <input type="text" class="form-control mb-2" id="name" name ="name" value="{{$user->name}}" required>
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="email" name ="email" value="{{$user->email}}" required>
-                                            <label for="password" class="form-label">Mot de passe</label>
-                                            <input type="password" class="form-control" id="password" name ="password" value="{{$user->password}}" required>
+                                            <input type="text" class="form-control mb-2" id="email" name ="email" value="{{$user->email}}" required>
+                                            <label for="password" class="form-label">Mot de passe<span class="text-muted">(min:8 caractères)</span></label>
+                                            <input type="password" class="form-control mb-2" id="password" name ="password" value="{{$user->password}}" required>
+                                            <label for="password_confirm" class="form-label">Confirmer le mot de passe</label>
+                                            <input type="password" class="form-control mb-2" id="password_confirm" name ="password_confirm" value="{{$user->password_confirm}}" required>
+    
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                             <input type="submit" class="link btn btn-a  add-link" value="Modifier">
@@ -79,11 +82,13 @@
                                 @csrf
                                 @method('POST')
                                     <label for="name" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" id="name" name ="name" value="{{old('name')}}" required>
+                                    <input type="text" class="form-control mb-2" id="name" name ="name" value="{{old('name')}}" required>
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" name ="email" value="{{old('email')}}" required>
-                                    <label for="password" class="form-label">Mot de passe</label>
-                                    <input type="password" class="form-control" id="password" name ="password" value="{{old('password')}}" required>
+                                    <input type="text" class="form-control mb-2" id="email" name ="email" value="{{old('email')}}" required>
+                                    <label for="password" class="form-label">Mot de passe <span class="text-muted">(min:8 caractères)</span> </label>
+                                    <input type="password" class="form-control mb-2" id="password" name ="password" value="{{old('password')}}" required>
+                                    <label for="password_confirm" class="form-label">Confirmer le mot de passe</label>
+                                    <input type="password" class="form-control mb-2" id="password_confirm" name ="password_confirm" value="{{old('password_confirm')}}" required>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                     <input type="submit" class="link btn btn-a" value="Ajouter">

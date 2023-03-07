@@ -18,4 +18,17 @@ class PositionUpdate extends FormRequest
             'name' => ['required','string',Rule::unique('positions')->ignore($this->position)],
         ];
     }
+        
+     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'name.unique' => "Le nom du poste doit être unique.",
+        ];
+    }
+
 }

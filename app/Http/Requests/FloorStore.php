@@ -14,21 +14,28 @@ class FloorStore extends FormRequest
      */
     public function rules(): array
     {
-        $floor_id = $this->route('floor')->id ?? null;
-        $building_id = $this->route('building')->id ?? null;
-    
+
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string'],
             'order' => [
-                'required', 'integer',
-                Rule::unique('floors', 'order')
-                    ->where(function ($query) use ($building_id, $floor_id) {
-                        $query->where('building_id', $building_id);
-                        if ($floor_id) {
-                            $query->where('id', '<>', $floor_id);
-                        }
-                    }),
+                'required',
+                'integer',
+                Rule::unique('floors')->where(function ($query) {
+                    $query->where('building_id', $this->route('building')->id)->whereNull('deleted_at');
+                })
             ],
+        ];       
+    }
+
+     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'order.unique' => "Le numéro d'étage doit être unique.",
         ];
     }
     

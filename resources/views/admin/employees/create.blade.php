@@ -9,7 +9,7 @@
                         Ajouter un employé
                     </div>
                     <div class="card-body">
-                        <form action={{ route('employees.store', ['building' => $building->id, 'floor' => $floor->id, 'office' => $office->id,'company' => $company->id]) }} method="POST" enctype="multipart/form-data">
+                        <form action={{route('employees.store', ['building' => $building->id, 'floor' => $floor->id, 'office' => $office->id,'company' => $company->id]) }} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
                                 <div class="col">
@@ -60,11 +60,11 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="position_id" class="form-label">positione</label>
+                                <label for="position_id" class="form-label">Post</label>
                                 <select id="position_id" name="position_id" class="dropdown form-select">
-                                        <option disabled selected hidden>Sélectionnez un positione</option>
+                                        <option disabled selected hidden>Sélectionnez un Poste</option>
                                         @foreach ($positions as $position)
-                                            <option value={{$position->id}}>{{$position->name}}</option>
+                                            <option value={{old('position_id')}}>{{$position->name}}</option>
                                         @endforeach
                                   </select>
                                   @error('position_id')

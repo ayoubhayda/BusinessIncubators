@@ -38,6 +38,7 @@ class UsersController extends Controller
     {
         $request->validated();
         $request->merge(['password' => bcrypt($request->password)]);
+        $request->merge(['password_confirm' => bcrypt($request->password_confirm)]);
         User::create($request->all());
         return redirect()->route('users.index');
 
@@ -66,6 +67,7 @@ class UsersController extends Controller
     {
         $request->validated();
         $request->merge(['password' => bcrypt($request->password)]);
+        $request->merge(['password_confirm' => bcrypt($request->password_confirm)]);
         $user->update($request->all());
         return redirect()->route('users.index');
     }

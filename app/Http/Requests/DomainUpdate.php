@@ -18,4 +18,18 @@ class DomainUpdate extends FormRequest
             'name' => ['required','string',Rule::unique('domains')->ignore($this->domain)],
         ];
     }
+            
+     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'name.unique' => "Le nom du dmaine doit être unique.",
+        ];
+    }
+
+
 }

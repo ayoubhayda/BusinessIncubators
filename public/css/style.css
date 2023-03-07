@@ -16,68 +16,68 @@ a, .btn {
   transition: 0.4s;
 }
 
-.show_company .cards .btn-U, .form-body .card form .btn-file, .form-body .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
+.show_company .cards .btn-U, .form-body .card form .btn-file, .form-body .card form .btn-submit, .modal .btn-a, .login .btn, .content .btn-M, .add .material-symbols-outlined, .navbar .btn, .bodyTable tfoot tr td .btn-a {
   background-color: #00adbb;
   border: none;
   color: #ffffff;
 }
 
-.show_company .cards .btn-U:hover, .form-body .card form .btn-file:hover, .form-body .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .positionsTable tfoot tr td .btn-a:hover, .officesTable tfoot tr td .btn-a:hover, .floorsTable tfoot tr td .btn-a:hover, .usersTable tfoot tr td .btn-a:hover, .domainsTable tfoot tr td .btn-a:hover, .citiesTable tfoot tr td .btn-a:hover {
+.show_company .cards .btn-U:hover, .form-body .card form .btn-file:hover, .form-body .card form .btn-submit:hover, .modal .btn-a:hover, .login .btn:hover, .content .btn-M:hover, .add .material-symbols-outlined:hover, .navbar .btn:hover, .bodyTable tfoot tr td .btn-a:hover {
   background-color: #ffffff;
   border: 1px solid #00adbb;
   color: #00adbb;
 }
 
-.show_company .cards .btn-S, .modal .btn-d, .content .btn-S, .positionsTable .btn-d, .officesTable .btn-d, .floorsTable .btn-d, .usersTable .btn-d, .domainsTable .btn-d, .citiesTable .btn-d {
+.show_company .cards .btn-S, .modal .btn-d, .content .btn-S, .bodyTable .btn-d {
   background-color: #f14a4a;
   border: none;
   color: #ffffff;
 }
 
-.show_company .cards .btn-S:hover, .modal .btn-d:hover, .content .btn-S:hover, .positionsTable .btn-d:hover, .officesTable .btn-d:hover, .floorsTable .btn-d:hover, .usersTable .btn-d:hover, .domainsTable .btn-d:hover, .citiesTable .btn-d:hover {
+.show_company .cards .btn-S:hover, .modal .btn-d:hover, .content .btn-S:hover, .bodyTable .btn-d:hover {
   background-color: #ffffff;
   border: 1px solid #f14a4a;
   color: #f14a4a;
 }
 
-.positionsTable .btn-u, .officesTable .btn-u, .floorsTable .btn-u, .usersTable .btn-u, .domainsTable .btn-u, .citiesTable .btn-u {
+.bodyTable .btn-u {
   background-color: #007ee5;
   border: none;
   color: #ffffff;
 }
 
-.positionsTable .btn-u:hover, .officesTable .btn-u:hover, .floorsTable .btn-u:hover, .usersTable .btn-u:hover, .domainsTable .btn-u:hover, .citiesTable .btn-u:hover {
+.bodyTable .btn-u:hover {
   background-color: #ffffff;
   border: 1px solid #007ee5;
   color: #007ee5;
 }
 
-.show_company .cards .btn-E, .content .btn-E, .positionsTable .btn-m, .officesTable .btn-m, .floorsTable .btn-m, .usersTable .btn-m, .domainsTable .btn-m, .citiesTable .btn-m {
+.show_company .cards .btn-E, .content .btn-E, .bodyTable .btn-m {
   background-color: #001c33;
   border: none;
   color: #ffffff;
 }
 
-.show_company .cards .btn-E:hover, .content .btn-E:hover, .positionsTable .btn-m:hover, .officesTable .btn-m:hover, .floorsTable .btn-m:hover, .usersTable .btn-m:hover, .domainsTable .btn-m:hover, .citiesTable .btn-m:hover {
+.show_company .cards .btn-E:hover, .content .btn-E:hover, .bodyTable .btn-m:hover {
   background-color: #ffffff;
   border: 1px solid #001c33;
   color: #001c33;
 }
 
-.positionsTable, .officesTable, .floorsTable, .usersTable, .domainsTable, .citiesTable {
+.bodyTable {
   box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
   width: 990px;
   color: #182c4b;
 }
-.positionsTable tr, .officesTable tr, .floorsTable tr, .usersTable tr, .domainsTable tr, .citiesTable tr {
+.bodyTable tr {
   border: 2px solid #00adbb;
 }
-.positionsTable tr td, .officesTable tr td, .floorsTable tr td, .usersTable tr td, .domainsTable tr td, .citiesTable tr td, .positionsTable tr th, .officesTable tr th, .floorsTable tr th, .usersTable tr th, .domainsTable tr th, .citiesTable tr th {
+.bodyTable tr td, .bodyTable tr th {
   border: 2px solid #00adbb;
   border-top: none;
   border-bottom: none;
 }
-.positionsTable tfoot tr td .btn-a, .officesTable tfoot tr td .btn-a, .floorsTable tfoot tr td .btn-a, .usersTable tfoot tr td .btn-a, .domainsTable tfoot tr td .btn-a, .citiesTable tfoot tr td .btn-a {
+.bodyTable tfoot tr td .btn-a {
   width: 80%;
 }
 .navbar {
@@ -185,7 +185,6 @@ a, .btn {
   font-size: 20px;
   font-weight: 600;
 }
-
 .form-body .card {
   box-shadow: 0 4px 8px 0 rgba(2, 111, 119, 0.1568627451), 0 6px 20px 0 rgba(2, 111, 119, 0.1568627451);
   border-radius: 7px;

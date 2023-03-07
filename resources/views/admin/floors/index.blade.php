@@ -3,7 +3,7 @@
 @section('content')
     <div class="conatiner-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">
-            <table class="table text-center floorsTable">
+            <table class="table text-center bodyTable">
                 <thead>
                     <tr>
                         <th >Numéro</th>
@@ -27,30 +27,11 @@
                             </div>
                         </td>
                         <td class="pt-2">
-                            <button type="button" class="btn btn-d" data-bs-toggle="modal"
-                                        data-bs-target="#myModal">Supprimer</button>
-                                    <form id="delete" action="{{route('floors.destroy',['building' => $building->id, 'floor' => $floor->id])}}"
-                                        method="POST" class="d-none">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                    <div class="modal" id="myModal">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    Voulez-vous vraiment supprimer cet étage ?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-bs-dismiss="modal">Non</button>
-                                                    <button
-                                                        onclick="event.preventDefault();
-                                                document.getElementById('delete').submit()"
-                                                        class="btn btn-primary">Oui</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <form action="{{route('floors.destroy', ['building' => $floor->building->id, 'floor'=>$floor->id])}}" method="POST" style="display: inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cet étage ?')"  class="link dlt-link btn btn-d" value="Supprimer">
+                            </form>
                         </td>
                     </tr>
                     <div class="modal fade" id="updateModal{{$floor->id}}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
