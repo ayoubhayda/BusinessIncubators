@@ -29,7 +29,7 @@ class DomainStore extends FormRequest
     public function messages(): array
     {
         return [
-            'name.unique' => "Le nom du dmaine doit être unique.",
+            'name.unique' => "Le nom du dmaine déjà existant",
         ];
     }
 

@@ -76,7 +76,10 @@
                                 @csrf
                                 @method('Post')
                                 <label for="new-city-name" class="form-label">Nom de la ville</label>
-                                <input type="text" class="form-control" id="new-city-name" name ="name" value="{{old('name')}}" required>
+                                <input type="text" class="form-control" id="new-city-name" name ="name" value="{{old('name')}}">
+                                @error('name')
+                                    <span class="small text-danger">* {{ $message }}</span>
+                                @enderror
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-d" data-bs-dismiss="modal">Annuler</button>
                                     <input type="submit" class="link btn btn-a" value="Ajouter">

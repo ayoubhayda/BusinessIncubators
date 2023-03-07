@@ -35,7 +35,7 @@ class FloorStore extends FormRequest
     public function messages(): array
     {
         return [
-            'order.unique' => "Le numéro d'étage doit être unique.",
+            'order.unique' => "Le numéro d'étage déjà existant",
         ];
     }
     

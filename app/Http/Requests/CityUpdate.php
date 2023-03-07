@@ -27,7 +27,7 @@ class CityUpdate extends FormRequest
     public function messages(): array
     {
         return [
-            'name.unique' => "Le nom de la ville doit être unique.",
+            'name.unique' => "Le nom de la ville déjà existant",
         ];
     }
 

@@ -23,4 +23,16 @@ class UserStore extends FormRequest
             'password_confirm'=> ['required', 'string', 'min:8','same:password'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'email.unique' => "Email déjà existant",
+        ];
+    }
 }
