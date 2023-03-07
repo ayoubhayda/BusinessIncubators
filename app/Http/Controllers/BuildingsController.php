@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\BuildingRequest;
+
+use App\Http\Requests\BuildingStore;
+use App\Http\Requests\BuildingUpdate;
 use Illuminate\Support\Str;
 use App\Models\Building;
 use App\Models\City;
 use App\Models\User;
-use App\Models\Floor;
 use Auth;
 
 class BuildingsController extends Controller
@@ -14,71 +15,46 @@ class BuildingsController extends Controller
     public function index()
     {
         $admin = Auth::user();
-        $buildings = $admin->role == 1? Building::all():$admin->buildings;
-        return view('admin.buildings.index')
-        ->with('buildings', $buildings)
-        ->with('admin', $admin);
-        
+        $buildings = $admin->role == 1 ? Building::all() : $admin->buildings;
+        return view('admin.buildings.index', compact('buildings', 'admin'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('admin.buildings.create')
-        ->with('cities', City::all())
-        ->with('users', User::where('role', 0)->get());
+        $cities = City::all();
+        $users = User::where('role', 0)->get();
+        return view('admin.buildings.create', compact('cities', 'users'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(BuildingRequest $request)
+    public function store(BuildingStore $request)
     {
-        $request->validated();
-        $slug = uniqid().Str::of($request->name)->slug('-').".".$request->logo->extension();
-        $building = Building::create($request->except(['logo','user_id']) + ['logo' => $slug]);
-        $building->users()->attach($request->user_id);
-        $request->logo->move(public_path('images'), $slug);
+        $validatedData = $request->validated();
+        $slug = uniqid() . Str::slug($validatedData['name'], '-') . '.' . $validatedData['logo']->extension();
+        $validatedData['logo']->move(public_path('images'), $slug);
+        $validatedData['logo'] = $slug;
+        $building = Building::create($validatedData);
+        $building->users()->attach($validatedData['user_id']);
         return redirect()->route('buildings.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($building) 
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Building $building) 
+    public function edit(Building $building)
     {
         $admin = Auth::user();
-        return view('admin.buildings.edit')
-        ->with('building', $building)
-        ->with('cities', City::all())
-        ->with('users', User::where('role', 0)->get())
-        ->with('admin', $admin);
+        $selectedUserId = optional($building->user)->id;
+        $cities = City::all();
+        $users = User::where('role', 0)->get();
+        return view('admin.buildings.edit', compact('building', 'cities', 'users', 'admin', 'selectedUserId'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(BuildingRequest $request,Building $building)
+    public function update(BuildingUpdate $request, Building $building)
     {
-        $request->validated();
-        $slug = uniqid().Str::of($request->name)->slug('-').".".$request->logo->extension();
-        $request->logo->move(public_path('images'), $slug);
-        $building->update($request->except(['logo']) + ['logo' => $slug]);
+        $validatedData = $request->validated();
+        $slug = uniqid() . Str::slug($validatedData['name'], '-') . '.' . $validatedData['logo']->extension();
+        $validatedData['logo']->move(public_path('images'), $slug);
+        $building->update(array_merge($validatedData, ['logo' => $slug]));
         return redirect()->route('buildings.index');
     }
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Building $building)
     {
         $building->delete();
