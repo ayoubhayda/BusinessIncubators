@@ -10,7 +10,7 @@
     <div class="content mt-4 d-flex justify-content-center">
         <div class="container-fluid row d-flex justify-content-between mt-4">
             @foreach ($buildings as $building)
-                <div class="card col-4 mb-4">
+                <div class="card col-4 mb-5">
                     <div class="card-header"></div>
                     <div class="cintainer d-flex justify-content-center">
                         <div class="card-img rounded-circle mt-2 d-flex justify-content-center alighn-items-center">

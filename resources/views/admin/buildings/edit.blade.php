@@ -37,7 +37,7 @@
                                 <div class="col">
                                     <label for="user_id" class="form-label">Utilisateur</label>
                                     <select id="user_id" name="user_id" class="dropdown form-select">
-                                        <option disabled hidden>Sélectionnez un Utilisateur</option>
+                                        <option disabled selected hidden>Sélectionnez un Utilisateur</option>
                                         @foreach ($users as $user)
                                             @if ($user->id == $selectedUserId)
                                                 <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
@@ -51,13 +51,12 @@
                                     @enderror
                                 </div>                                
                                 @endif
-                                
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
                                     <label for="city_id" class="form-label">Ville</label>
                                     <select id="city_id" name="city_id" value="{{$building->city_id}}" class="dropdown form-select">
-                                            <option>Sélectionnez une ville</option>
+                                            <option disabled selected hidden>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 @if ($city->id == $building->city_id)
                                                     <option value={{$city->id}} selected>{{$city->name}}</option>

@@ -38,6 +38,8 @@ Route::prefix('admin')->middleware(['auth', 'role:1,0'])->group(function () {
 
 Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
 
+    Route::resource('positions', PositionsController::class);
+
     Route::prefix('buildings/{building}')->group(function () {
 
         Route::resources(['floors' => FloorsController::class]);
