@@ -43,6 +43,9 @@
                     <a class="nav-link" href="{{ route('buildings.index') }}">Immeubles</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('positions.index') }}">Postes</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Plaintes</a>
                 </li>
             </ul>  

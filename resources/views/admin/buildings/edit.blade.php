@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title', "Modifier l'immeuble")
 @section('content')
-    <div class=" container mt-3">
+    <div class=" container mt-4">
         <div class="form-body row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -13,14 +13,18 @@
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nom d'immeuble</label>
-                                <input type="text" class="form-control" value="{{ $building->name }}" placeholder="Nom d'immeuble" name="name">
-                                @error('name')
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="name" class="form-label">Nom d'immeuble</label>
+                                    <input type="text" class="form-control" value="{{ $building->name }}" placeholder="Nom d'immeuble" name="name">
+                                    @error('name')
                                         <span class="small text-danger">* {{ $message }}</span>
-                                @enderror
+                                    @enderror
+                                </div>
+                            @if ($admin->role == 1)
                             </div>
                             <div class="row mb-3 mt-1">
+                            @endif
                                 <div class="col">
                                     <label for="phone" class="form-label">Numéro de téléphone</label>
                                     <input type="tel" class="form-control" value="{{ $building->phone }}"
@@ -29,30 +33,30 @@
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
                                 </div>
+                                @if ($admin->role == 1)
                                 <div class="col">
                                     <label for="user_id" class="form-label">Utilisateur</label>
                                     <select id="user_id" name="user_id" class="dropdown form-select">
-                                            <option disabled selected hidden>Sélectionnez un Utilisateur</option>
-                                            @foreach ($users as $user)
-                                                @if ($user->id == $admin->id)
-                                                    <option value={{$user->id}} selected>{{$user->name}}</option>
-                                                @else
-                                                    @if ($admin->role == 1)
-                                                        <option value={{$user->id}}>{{$user->name}}</option>
-                                                    @endif
-                                                @endif
-                                            @endforeach
-                                      </select>
-                                      @error('user_id')
+                                        <option disabled selected hidden>Sélectionnez un Utilisateur</option>
+                                        @foreach ($users as $user)
+                                            @if ($user->id == $selectedUserId)
+                                                <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
+                                            @else
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    @error('user_id')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
-                                </div>
+                                </div>                                
+                                @endif
                             </div>
                             <div class="row mb-3 mt-3">
                                 <div class="col">
                                     <label for="city_id" class="form-label">Ville</label>
                                     <select id="city_id" name="city_id" value="{{$building->city_id}}" class="dropdown form-select">
-                                            <option>Sélectionnez une ville</option>
+                                            <option disabled selected hidden>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
                                                 @if ($city->id == $building->city_id)
                                                     <option value={{$city->id}} selected>{{$city->name}}</option>

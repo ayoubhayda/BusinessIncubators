@@ -13,7 +13,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nom d'immeuble</label>
-                                <input type="text" class="form-control" placeholder="Nom d'immeuble" name="name">
+                                <input type="text" class="form-control" value="{{old('name')}}" placeholder="Nom d'immeuble" name="name">
                                 @error('name')
                                     <span class="small text-danger">* {{ $message }}</span>
                                 @enderror
@@ -21,7 +21,7 @@
                             <div class="row mb-3 mt-1">
                                 <div class="col">
                                     <label for="phone" class="form-label">Numéro de téléphone</label>
-                                    <input type="tel" class="form-control" placeholder="Numéro de téléphone"
+                                    <input type="tel" class="form-control" value="{{old('phone')}}" placeholder="Numéro de téléphone"
                                         name="phone">
                                     @error('phone')
                                         <span class="small text-danger">* {{ $message }}</span>
@@ -32,8 +32,12 @@
                                     <select id="user_id" name="user_id" class="dropdown form-select">
                                             <option disabled selected hidden>Sélectionnez un Utilisateur</option>
                                             @foreach ($users as $user)
-                                                <option value={{$user->id}}>{{$user->name}}</option>
-                                            @endforeach
+                                            @if ($user->id == old('user_id'))
+                                                <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
+                                            @else
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endif
+                                        @endforeach
                                       </select>
                                       @error('user_id')
                                         <span class="small text-danger">* {{ $message }}</span>
@@ -44,9 +48,13 @@
                                 <div class="col">
                                     <label for="city_id" class="form-label">Ville</label>
                                     <select id="city_id" name="city_id" class="dropdown form-select">
-                                            <option>Sélectionnez une ville</option>
+                                            <option disabled selected hidden>Sélectionnez une ville</option>
                                             @foreach ($cities as $city)
-                                                <option value={{$city->id}}>{{$city->name}}</option>
+                                                @if ($city->id == old('city_id'))
+                                                    <option value={{$city->id}} selected>{{$city->name}}</option>
+                                                @else
+                                                    <option value={{$city->id}}>{{$city->name}}</option>
+                                                @endif
                                             @endforeach
                                       </select>
                                       @error('city_id')
@@ -72,7 +80,7 @@
                             <div class="mb-3 mt-3">
                                 <label for="address" class="form-label">Adresse</label>
                                 <textarea name="address" id="address" class="form-control" cols="30" rows="2"
-                                    placeholder="Entrez l'adresse du d'immeuble"></textarea>
+                                    placeholder="Entrez l'adresse du d'immeuble">{{old('address')}}</textarea>
                                 @error('address')
                                     <span class="small text-danger">* {{ $message }}</span>
                                 @enderror
