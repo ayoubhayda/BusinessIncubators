@@ -100,7 +100,7 @@ return [
         'array' => 'Le mot de passe doit contenir an moins :min caractères.',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'Le mot de passe doit contenir an moins :min characters.',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',
@@ -125,7 +125,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'Ce champ est obligatoire.',
+    'required' => 'Le champ est obligatoire.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
@@ -163,9 +163,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'password' => [
+            'required' => 'le mot de passe est obligatoire.',
+            'min' => 'Le mot de passe doit contenir an moins :min caractères.'
         ],
+        'password_confirm' => [
+            'required' => 'la confirmation du mot de passe est obligatoire.',
+            'same' => 'le mot de passe et la confirmation ne sont pas identiques.'
+        ],
+        
     ],
 
     /*

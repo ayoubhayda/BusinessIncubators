@@ -19,8 +19,8 @@ class UserStore extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255',  Rule::unique('users')->where(function ($query) {
                 $query->whereNull('deleted_at');
             })],
-            'password' => ['required', 'string', 'min:8','same:password_confirm'],
-            'password_confirm'=> ['required', 'string', 'min:8','same:password'],
+            'password' => ['required', 'string', 'min:8'],
+            'password_confirm'=> ['required', 'same:password'],
         ];
     }
 

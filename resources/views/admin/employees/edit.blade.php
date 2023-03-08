@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', "Modifier un employé")
+@section('title', 'Modifier un employé')
 @section('content')
     <div class=" container mb-5 mt-5">
         <div class="form-body row justify-content-center">
@@ -9,35 +9,41 @@
                         Modifier un employé
                     </div>
                     <div class="card-body">
-                        <form action={{ route('employees.update', ['building' => $building->id, 'floor' => $floor->id, 'office' => $office->id,'company' => $company->id,'employee' => $employee->id]) }} method="POST" enctype="multipart/form-data">
+                        <form
+                            action={{ route('employees.update', ['building' => $building->id, 'floor' => $floor->id, 'office' => $office->id, 'company' => $company->id, 'employee' => $employee->id]) }}
+                            method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
                                 <div class="col">
                                     <label for="first_name" class="form-label">Prénom</label>
-                                    <input type="text" class="form-control" placeholder="Prénom" value="{{ $employee->first_name }}" name="first_name">
+                                    <input type="text" class="form-control" placeholder="Prénom"
+                                        value="{{ $employee->first_name }}" name="first_name">
                                     @error('first_name')
-                                            <span class="small text-danger">* {{ $message }}</span>
-                                    @enderror    
+                                        <span class="small text-danger">* {{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col">
                                     <label for="last_name" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" placeholder="Nom" value="{{ $employee->last_name  }}" name="last_name">
+                                    <input type="text" class="form-control" placeholder="Nom"
+                                        value="{{ $employee->last_name }}" name="last_name">
                                     @error('last_name')
-                                            <span class="small text-danger">* {{ $message }}</span>
-                                    @enderror    
+                                        <span class="small text-danger">* {{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <div class="col">
                                     <label for="birth_date" class="form-label">Date de naissance</label>
-                                    <input type="date" class="form-control" value="{{ $employee->birth_date }}" name="birth_date">
+                                    <input type="date" class="form-control" value="{{ $employee->birth_date }}"
+                                        name="birth_date">
                                     @error('birth_date')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col">
                                     <label for="cin" class="form-label">CIN</label>
-                                    <input type="text" class="form-control" value="{{ $employee->cin }}" placeholder="CIN" name="cin">
+                                    <input type="text" class="form-control" value="{{ $employee->cin }}"
+                                        placeholder="CIN" name="cin">
                                     @error('cin')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
@@ -46,14 +52,16 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" value="{{ $employee->email }}" placeholder="exemple@gmail.com" name="email">
+                                    <input type="email" class="form-control" value="{{ $employee->email }}"
+                                        placeholder="exemple@gmail.com" name="email">
                                     @error('email')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col">
                                     <label for="phone" class="form-label">Numéro de téléphone</label>
-                                    <input type="tel" class="form-control" value="{{ $employee->phone  }}" placeholder="0500550005" name="phone">
+                                    <input type="tel" class="form-control" value="{{ $employee->phone }}"
+                                        placeholder="0500550005" name="phone">
                                     @error('phone')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror
@@ -62,22 +70,24 @@
                             <div class="mb-3">
                                 <label for="position_id" class="form-label">Position</label>
                                 <select id="position_id" name="position_id" class="dropdown form-select">
-                                        <option disabled selected hidden>Sélectionnez une Position</option>
-                                        @foreach ($positions as $position)
+                                    <option disabled selected hidden>Sélectionnez une Position</option>
+                                    @foreach ($positions as $position)
                                         @if ($position->id == $employee->position_id)
-                                            <option value={{$position->id}} selected>{{$position->name}}</option>
+                                            <option value={{ $position->id }} selected>{{ $position->name }}</option>
                                         @else
-                                            <option value={{$position->id}}>{{$position->name}}</option>
+                                            <option value={{ $position->id }}>{{ $position->name }}</option>
                                         @endif
-                                    @endforeach                                  </select>
-                                  @error('position_id')
+                                    @endforeach
+                                </select>
+                                @error('position_id')
                                     <span class="small text-danger">* {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="speciality" class="form-label">Specialité</label>
-                                    <input type="text" class="form-control" value="{{ $emplooyee->speciality }}" placeholder="Specialité" name="speciality">
+                                    <input type="text" class="form-control" value="{{ $emplooyee->speciality }}"
+                                        placeholder="Specialité" name="speciality">
                                     @error('speciality')
                                         <span class="small text-danger">* {{ $message }}</span>
                                     @enderror

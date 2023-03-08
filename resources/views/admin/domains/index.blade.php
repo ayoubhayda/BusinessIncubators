@@ -6,6 +6,15 @@
 @section('content')
     <div class="conatiner-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">
+            @if (Session::get('errors'))
+            <div class="alert alert-danger alert-dismissable d-flex justify-content-between">
+                @foreach ($errors->all() as $message)
+                    <div><strong>Erreur!</strong> {{ $message }}</div>
+                @endforeach
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+                            
+            @endif
             <table class="table text-center bodyTable">
                 <thead>
                     <tr>
