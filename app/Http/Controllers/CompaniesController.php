@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BuildingStore;
-use App\Http\Requests\BuildingUpdate;
 use App\Http\Requests\CompanyStore;
 use App\Http\Requests\CompanyUpdate;
 use App\Models\Building;
 use App\Models\Floor;
 use App\Models\Office;
 use App\Models\Domain;
-use Illuminate\Http\Request;
 use App\Models\Company;
 use Illuminate\Support\Str;
 

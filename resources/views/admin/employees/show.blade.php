@@ -74,7 +74,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Position</p>
+                                    <p class="mb-0">Poste</p>
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{$employee->position->name}}</p>

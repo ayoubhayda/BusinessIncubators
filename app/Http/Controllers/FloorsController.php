@@ -6,7 +6,6 @@ use App\Http\Requests\FloorStore;
 use App\Http\Requests\FloorUpdate;
 use App\Models\Building;
 use App\Models\Floor;
-use Illuminate\Http\Request;
 
 class FloorsController extends AdminController
 {

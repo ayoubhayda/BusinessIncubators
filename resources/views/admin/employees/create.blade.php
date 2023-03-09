@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="position_id" class="form-label">Post</label>
+                                <label for="position_id" class="form-label">Poste</label>
                                 <select id="position_id" name="position_id" class="dropdown form-select">
                                     <option disabled selected hidden>Sélectionnez un Poste</option>
                                     @foreach ($positions as $position)

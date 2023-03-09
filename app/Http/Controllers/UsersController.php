@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStore;
 use App\Http\Requests\UserUpdate;
-use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
-
-
 
 class UsersController extends Controller
 {

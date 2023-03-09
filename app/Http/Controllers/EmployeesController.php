@@ -10,10 +10,6 @@ use App\Models\Floor;
 use App\Models\Office;
 use App\Models\Employee;
 use App\Models\Position;
-
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
 class EmployeesController extends AdminController

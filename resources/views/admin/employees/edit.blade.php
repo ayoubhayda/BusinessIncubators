@@ -68,9 +68,9 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="position_id" class="form-label">Position</label>
+                                <label for="position_id" class="form-label">Poste</label>
                                 <select id="position_id" name="position_id" class="dropdown form-select">
-                                    <option disabled selected hidden>Sélectionnez une Position</option>
+                                    <option disabled selected hidden>Sélectionnez un poste</option>
                                     @foreach ($positions as $position)
                                         @if ($position->id == $employee->position_id)
                                             <option value={{ $position->id }} selected>{{ $position->name }}</option>

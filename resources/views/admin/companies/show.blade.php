@@ -94,14 +94,14 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-sm-3">
                                     <p class="mb-0">Domaines</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <ul class="mb-0">
+                                    <ul class="mb-0 list-group list-group-horizontal" >
                                         @foreach ($domains as $domain)
-                                            <li>{{$domain->name}}</li>
+                                            <li class="list-group-item text-muted">{{$domain->name}}</li>
                                         @endforeach
                                     </ul>
                                 </div>

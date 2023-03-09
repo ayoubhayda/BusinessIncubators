@@ -18,7 +18,6 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Étage</th>
                         <th>Disponibilité</th>
                         <th colspan="3">Actions</th>
                     </tr>
@@ -27,7 +26,6 @@
                     @foreach ($offices as $office)
                         <tr>
                             <td>{{ $office->name }}</td>
-                            <td>{{ $office->floor->name }}</td>
                             <td>
                                 @if ($office->is_rented == 0)
                                     Disponible
@@ -106,7 +104,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="6">
+                        <td colspan="5">
                             <div class="text-center">
                                 <a href="#addModal" class="link btn btn-a" data-bs-toggle="modal">Ajouter</a>
                             </div>
