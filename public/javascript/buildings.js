@@ -40,3 +40,5 @@ function showFileName_image( event ) {
   var fileName_image = input_image.files[0].name;
   infoArea_image.textContent = fileName_image;
 }
+
+

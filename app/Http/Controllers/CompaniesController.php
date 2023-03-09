@@ -72,7 +72,7 @@ class CompaniesController extends AdminController
         $this->authorizeUser($building);
         $selectedDomainId = optional($company->domains->first())->id;
         $domains = Domain::all();
-        return view('admin.companies.edit', compact('building', 'floor', 'office', 'company', 'selectedDomainId'));
+        return view('admin.companies.edit', compact('building', 'floor', 'office', 'company','domains', 'selectedDomainId'));
     }
 
     /**

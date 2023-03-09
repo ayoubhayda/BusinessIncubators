@@ -77,7 +77,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="domain_id" class="form-label">Domaine</label>
-                                <select id="domain_id" name="domain_id" class="dropdown form-select">
+                                <select id="domain_id" name="domain_id" class="dropdown form-select select">
                                         <option disabled selected hidden>Sélectionnez un domaine</option>
                                         @foreach ($domains as $domain)
                                             @if ($domain->id == old('domain_id'))
@@ -91,7 +91,6 @@
                                     <span class="small text-danger">* {{ $message }}</span>
                                 @enderror
                             </div>
-                            
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="email" class="form-label">Email</label>
