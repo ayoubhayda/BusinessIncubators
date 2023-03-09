@@ -10,11 +10,24 @@
 .navbar {
     background-color: $color-1;
     box-shadow: 0 4px 16px 0 $shadow-color, 0 6px 40px 0 $shadow-color;
+    height: 55px;
     ul a {
-        color: $font-color-1;
-        margin: 0 15px;
-        &:hover{
+        display: flex;
+        align-items: center;
+        margin: 0 25px;
+        .material-symbols-outlined{
+            font-size: 28px;
+            font-weight: 300;
+            color: $font-color-1;
+            scroll-behavior: smooth;
+            &:hover, .active{
+                color: $color-2;
+                border-bottom: 2px solid $color-2;
+            }
+        } 
+        .active{
             color: $color-2;
+            border-bottom: 2px solid $color-2;
         }
     }
 

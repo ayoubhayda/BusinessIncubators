@@ -23,32 +23,35 @@
             <a class="navbar-brand" href="#"><img class="logo" src="{{ url('images/logo.png') }}"
                     alt=""></a>
             @if (Auth::user()->role == 1)
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('cities.index') }}">Villes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('buildings.index') }}">Immeubles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('domains.index') }}">Domaines</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('users.index') }}">Utilisateurs</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('buildings.index') }}"><i
+                                class="material-symbols-outlined @yield('home')">Home</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('users.index') }}"><i
+                                class="material-symbols-outlined @yield('user')">Group</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('cities.index') }}"><i
+                                class="material-symbols-outlined @yield('city')">Home_Pin</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('domains.index') }}"><i
+                                class="material-symbols-outlined @yield('domain')">Business_Center</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('positions.index') }}"><i
+                                class="material-symbols-outlined @yield('position')">Badge</i></a>
+                    </li>
+                </ul>
             @else
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('buildings.index') }}">Immeubles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('positions.index') }}">Postes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Plaintes</a>
-                </li>
-            </ul>  
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('buildings.index') }}"><i
+                                class="material-symbols-outlined @yield('home')">Home</i></a>
+                    </li>
+                </ul>
             @endif
             <div class="dropdown">
                 <a id="navbarDropdown" class="btn dropdown-toggle" href="#" role="button"
@@ -72,7 +75,7 @@
         @yield('content')
     </div>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

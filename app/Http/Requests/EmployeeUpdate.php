@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class EmployeeUpdate extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -21,7 +21,7 @@ class EmployeeRequest extends FormRequest
             'biography' => 'string',
             'birth_date' => 'required',
             'cin' => ['required', 'string'],
-            'image' => 'required|mimes:jpg,png,jped|max:548',
+            'image' => 'mimes:jpg,png,jped|max:548',
             'speciality' => ['required', 'string'],
             'position_id' => 'required'
         ];

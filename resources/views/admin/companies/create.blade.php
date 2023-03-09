@@ -22,11 +22,11 @@
                                 <div class="col">
                                     <label for="visibility" class="form-label">Visibilité</label><br>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" id="visibiity" name="visibility" value={{1}}>
+                                        <input type="radio" class="form-check-input" id="visibiity" name="visibility" value={{1}} checked>
                                         <label class="form-check-label" for="visibility">Visible</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" id="visibility" name="visibility" value={{0}} checked >
+                                        <input type="radio" class="form-check-input" id="visibility" name="visibility" value={{0}} {{old('visibility') ==0 ? "checked" : "" }}>
                                         <label class="form-check-label" for="visibility"> Non visible </label>
                                     </div>
                                     @error('visibility')
@@ -80,7 +80,11 @@
                                 <select id="domain_id" name="domain_id" class="dropdown form-select">
                                         <option disabled selected hidden>Sélectionnez un domaine</option>
                                         @foreach ($domains as $domain)
-                                            <option value={{$domain->id}}>{{$domain->name}}</option>
+                                            @if ($domain->id == old('domain_id'))
+                                                <option value={{$domain->id}} selected>{{$domain->name}}</option>
+                                            @else
+                                                <option value={{$domain->id}}>{{$domain->name}}</option>
+                                            @endif
                                         @endforeach
                                   </select>
                                   @error('domain_id')

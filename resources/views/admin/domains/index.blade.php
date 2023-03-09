@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Domaines')
+@section('domain','active')
 @section('styles')
     {{--    styles for this page --}}
 @endsection

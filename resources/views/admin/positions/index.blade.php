@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Postes')
+@section('position','active')
 @section('styles')
     {{--    styles for this page --}}
 @endsection

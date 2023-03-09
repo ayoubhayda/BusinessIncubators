@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Ajouter un immeuble')
+@section('home','active')
 @section('content')
     <div class=" container mt-4">
         <div class="form-body row justify-content-center">

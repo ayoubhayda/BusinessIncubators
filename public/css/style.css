@@ -83,13 +83,26 @@ a, .btn {
 .navbar {
   background-color: #ffffff;
   box-shadow: 0 4px 16px 0 rgba(2, 112, 119, 0.1803921569), 0 6px 40px 0 rgba(2, 112, 119, 0.1803921569);
+  height: 55px;
 }
 .navbar ul a {
-  color: #182c4b;
-  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  margin: 0 25px;
 }
-.navbar ul a:hover {
+.navbar ul a .material-symbols-outlined {
+  font-size: 28px;
+  font-weight: 300;
+  color: #182c4b;
+  scroll-behavior: smooth;
+}
+.navbar ul a .material-symbols-outlined:hover, .navbar ul a .material-symbols-outlined .active {
   color: #00adbb;
+  border-bottom: 2px solid #00adbb;
+}
+.navbar ul a .active {
+  color: #00adbb;
+  border-bottom: 2px solid #00adbb;
 }
 .navbar .logo {
   width: 65px;

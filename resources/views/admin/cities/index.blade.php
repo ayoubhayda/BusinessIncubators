@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Villes')
+@section('city','active')
 @section('styles')
     {{--    styles for this page --}}
 @endsection

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Immeubles')
+@section('home','active')
 @section('content')
 
     @if ($admin->role == 1)

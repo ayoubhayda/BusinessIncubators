@@ -8,10 +8,11 @@ use App\Models\Building;
 use App\Models\Floor;
 use Illuminate\Http\Request;
 
-class FloorsController extends Controller
+class FloorsController extends AdminController
 {
     public function index(Building $building)
     {
+        $this->authorizeUser($building);
         return view('admin.floors.index')
             ->with('building', $building)
             ->with('floors', $building->floors);
@@ -22,6 +23,7 @@ class FloorsController extends Controller
      */
     public function create(Building $building)
     {
+        $this->authorizeUser($building);
         return view('admin.floors.create')
             ->with('building', $building);
     }
@@ -31,6 +33,7 @@ class FloorsController extends Controller
      */
     public function store(FloorStore $request, Building $building)
     {
+        $this->authorizeUser($building);
         $validatedData = $request->validated();
         $validatedData['building_id'] = $building->id;
 
@@ -44,6 +47,7 @@ class FloorsController extends Controller
      */
     public function show(Building $building, Floor $floor)
     {
+        $this->authorizeUser($building);
         return view('admin.floors.show')
             ->with('building', $building)
             ->with('floor', $floor);
@@ -54,6 +58,7 @@ class FloorsController extends Controller
      */
     public function edit(Building $building, Floor $floor)
     {
+        $this->authorizeUser($building);
         return view('admin.floors.edit')
             ->with('building', $building)
             ->with('floor', $floor);
@@ -64,6 +69,7 @@ class FloorsController extends Controller
      */
     public function update(FloorUpdate $request, Building $building, Floor $floor)
     {
+        $this->authorizeUser($building);
         $validatedData = $request->validated();
         $validatedData['building_id'] = $building->id;
 
@@ -77,6 +83,7 @@ class FloorsController extends Controller
      */
     public function destroy(Building $building, Floor $floor)
     {
+        $this->authorizeUser($building);
         $floor->delete();
 
         return redirect()->route('floors.index', $building);

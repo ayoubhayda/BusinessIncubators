@@ -12,33 +12,36 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\EmployeesController;
 
 
+// ----------------------These routes handle user authentication ----------------------------
+
+Auth::routes(); 
 
 
-// ----------------------super admin routes ----------------------------
-// These routes are only accessible by users with the 'super admin'
+// ----------These routes are only accessible by users with the 'super admin' ----------------
+
 Route::prefix('admin')->middleware(['auth', 'role:1'])->group(function () {
     // Manage buildings
     Route::resource('buildings', BuildingsController::class)->only(['store','create','destroy']);
+    // Manage cities and domains and users and positions
     Route::resources([
         'cities' => CitiesController::class,
         'domains' => DomainsController::class,
         'users' => UsersController::class,
+        'positions' => PositionsController::class,
     ]);
 });
 
-// ----------------------super and normal admin routes ----------------------------
-// These routes are accessible by users with the 'super admin' and 'normal admin'
+// -----These routes are accessible by users with the 'super admin' and 'normal admin' -----------
+
 Route::prefix('admin')->middleware(['auth', 'role:1,0'])->group(function () {
     // Manage buildings
     Route::resource('buildings', BuildingsController::class)->only(['index', 'edit', 'update']);
 });
 
-// ----------------------normal admin routes ----------------------------
-// These routes are only accessible by users with the 'normal admin' role (role ID = 0)
+
+// ---------These routes are only accessible by users with the 'normal admin'---------------
 
 Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
-
-    Route::resource('positions', PositionsController::class);
 
     Route::prefix('buildings/{building}')->group(function () {
 
@@ -63,10 +66,6 @@ Route::prefix('admin')->middleware(['auth', 'role:0'])->group(function () {
 });
 
 
-// ----------------------public routes ----------------------------
-// These routes are accessible to everyone
+// -------------These routes are accessible to everyone -------------------
 Route::get('/', [HomeController::class, 'index']);
 
-// ----------------------auth routes ----------------------------
-// These routes handle user authentication
-Auth::routes(); 

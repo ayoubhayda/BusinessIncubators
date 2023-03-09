@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Utilisateurs')
+@section('user','active')
 @section('content')
     <div class="conatainer-fluid d-flex justify-content-center mt-4">
         <div class="mt-4">

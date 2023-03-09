@@ -6,10 +6,11 @@ use App\Models\Building;
 use App\Models\Floor;
 use App\Models\Office;
 
-class OfficesController extends Controller
+class OfficesController extends AdminController
 {
     public function index(Building $building, Floor $floor, Office $office)
     {
+        $this->authorizeUser($building);
         return view('admin.offices.index')
         ->with('floor', $floor)
         ->with('offices', $floor->offices);
@@ -19,8 +20,7 @@ class OfficesController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //    
+    {    
     }
 
     /**
@@ -28,6 +28,7 @@ class OfficesController extends Controller
      */
     public function store(OfficeRequest $request,Building $building,Floor $floor)
     {
+        $this->authorizeUser($building);
         $request->validated();
         Office::create($request->all() + ['floor_id'=> $floor->id ]);
         return redirect()->route('offices.index', ['building'=> $building->id ,'floor' => $floor->id]);
@@ -46,6 +47,7 @@ class OfficesController extends Controller
      */
     public function edit(Building $building,Office $office,Floor $floor) 
     {
+        $this->authorizeUser($building);
         return view('admin.offices.index')
         ->with('offices', $floor->offices);
     }
@@ -55,6 +57,7 @@ class OfficesController extends Controller
      */
     public function update(OfficeRequest $request,Building $building,Floor $floor,Office $office)
     {
+        $this->authorizeUser($building);
         $request->validated();
         $office->update($request->all() + ['floor_id'=> $floor->id ]);
         return redirect()->route('offices.index', ['building' => $building->id ,'floor' => $floor->id]);
@@ -65,6 +68,7 @@ class OfficesController extends Controller
      */
     public function destroy( Building $building,Floor $floor,Office $office)
     {
+        $this->authorizeUser($building);
         $office->delete();
         return redirect()->route('offices.index', ['building'=> $building->id ,'floor' => $floor->id]); }
 }

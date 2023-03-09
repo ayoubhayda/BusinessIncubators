@@ -80,7 +80,11 @@
                                 <select id="domain_id" name="domain_id" class="dropdown form-select">
                                         <option disabled selected hidden>Sélectionnez un domaine</option>
                                         @foreach ($domains as $domain)
-                                            <option value={{$domain->id}}>{{$domain->name}}</option>
+                                            @if ($domain->id == $selectedDomainId)
+                                                <option value={{$domain->id}} selected>{{$domain->name}}</option>
+                                            @else
+                                                <option value={{$domain->id}}>{{$domain->name}}</option>
+                                            @endif
                                         @endforeach
                                   </select>
                                   @error('domain_id')
